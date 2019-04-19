@@ -1,0 +1,23 @@
+name: jupyter
+channels:
+- defaults
+- pytorch
+- gpytorch
+- conda-forge
+dependencies:
+- python=3.6
+# GUI
+- jupyterlab        # standard GUI
+- jupyter
+- ipykernel
+- nodejs            # for extensions in jupyterlab
+- tqdm              # 
+- ipywidgets
+- pip:
+  - black
+  - dask_labextension
+  - nbserverproxy
+  - jupyterlab_snippets
+  - jupyterlab_code_formatter
+  - jupyterlab-git
+
