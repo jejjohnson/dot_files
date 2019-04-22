@@ -6,6 +6,7 @@ dependencies:
 - python=3.6
 # GUI
 - jupyterlab        # standard GUI
+- nb_conda_kernels
 - jupyter
 - ipykernel
 - nodejs            # for extensions in jupyterlab
