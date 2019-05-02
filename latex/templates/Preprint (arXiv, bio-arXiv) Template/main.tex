@@ -1,0 +1,73 @@
+\documentclass{article}
+\input{macros/format.tex}
+\input{macros/math.tex}
+
+
+\title{A template for the \emph{arxiv} style}
+
+
+\author{
+  J.~Emmanuel~Johnson\thanks{Use footnote for providing further
+    information about author (webpage, alternative
+    address)---\emph{not} for acknowledging funding agencies.} \\
+  Department of Computer Science\\
+  Cranberry-Lemon University\\
+  Pittsburgh, PA 15213 \\
+  \texttt{juan.johnson@uv.es} \\
+%   %% examples of more authors
+%   \And
+%  Elias D.~Striatum \\
+%   Department of Electrical Engineering\\
+%   Mount-Sheikh University\\
+%   Santa Narimana, Levand \\
+%   \texttt{stariate@ee.mount-sheikh.edu} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract.tex}
+
+
+% keywords can be removed
+\keywords{First keyword \and Second keyword \and More}
+
+
+\section{Introduction}
+\input{sections/introduction.tex}
+
+\section{Literature Review}
+\input{sections/literature_review.tex}
+
+\section{Methods}
+\input{sections/methods.tex}
+
+\section{Results}
+\input{sections/results.tex}
+
+\section{Discussion}
+\input{sections/discussion.tex}
+
+
+
+
+\bibliographystyle{unsrt}  
+\bibliography{bibs/references} 
+
+
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[10pt,letterpaper]{article}
+\input{macros/format.tex}
+\input{macros/math.tex}
+
+% document begins here
+\begin{document}
+\vspace*{0.35in}
+
+% title goes here:
+\begin{flushleft}
+{\Large
+\textbf\newline{\LaTeX Template for Manuscripts with Embedded Figures.}
+}
+\newline
+% authors go here:
+\\
+Author 1\textsuperscript{1, *},
+\\
+\bigskip
+\bf{1} Affiliation A
+\\
+\bigskip
+* juan.johnson@uv.es
+
+\end{flushleft}
+
+\section*{Abstract}
+
+\input{sections/abstract.tex}
+
+% now start line numbers
+\linenumbers
+
+% the * after section prevents numbering
+\section*{Introduction}
+\input{sections/introduction.tex}
+
+\section*{Materials and Methods}
+\input{sections/methods.tex}
+
+
+\section*{Results}
+\input{sections/results.tex}
+
+
+\section*{Discussion}
+\input{sections/discussion.tex}
+
+\section*{Appendix}
+\input{sections/supplementary.tex}
+
+\section*{Acknowledgments}
+We thank just about everybody.
+
+\nolinenumbers
+
+%This is where your bibliography is generated. Make sure that your .bib file is actually called library.bib
+\bibliography{bibs/library}
+
+%This defines the bibliographies style. Search online for a list of available styles.
+\bibliographystyle{abbrv}
+
+\end{document}
+
