@@ -99,28 +99,30 @@
 \newcommand{\bY}{\mathbf{Y}}
 \newcommand{\bZ}{\mathbf{Z}}
 
+
 % Lower Case Letters
-\newcommand{\ba}{\boldsymbol a}
-\newcommand{\bbb}{\boldsymbol b}
-\newcommand{\bc}{\boldsymbol c}
-\newcommand{\bd}{\boldsymbol d}
-\newcommand{\be}{\boldsymbol e}
-\newcommand{\bff}{\boldsymbol f}
-\newcommand{\bh}{\boldsymbol h}
-\newcommand{\bk}{\boldsymbol k}
-\newcommand{\bl}{\boldsymbol l}
-\newcommand{\bn}{\boldsymbol n}
-\newcommand{\bo}{\boldsymbol o}
-\newcommand{\bp}{\boldsymbol p}
-\newcommand{\bq}{\boldsymbol q}
-\newcommand{\br}{\boldsymbol r}
-\newcommand{\bs}{\boldsymbol s}
-\newcommand{\bv}{\boldsymbol v}
-\newcommand{\bu}{\boldsymbol u}
-\newcommand{\bw}{\boldsymbol w}
-\newcommand{\bx}{\boldsymbol x}
-\newcommand{\by}{\boldsymbol y}
-\newcommand{\bz}{\boldsymbol z}
+\newcommand{\ba}{\boldsymbol{a}}
+\newcommand{\bbb}{\boldsymbol{b}}
+\newcommand{\bc}{\boldsymbol{c}}
+\newcommand{\bd}{\boldsymbol{d}}
+\newcommand{\be}{\boldsymbol{e}}
+\newcommand{\bff}{\boldsymbol{f}}
+\newcommand{\bh}{\boldsymbol{h}}
+\newcommand{\bk}{\boldsymbol{k}}
+\newcommand{\bl}{\boldsymbol{l}}
+\newcommand{\bm}{\boldsymbol{m}}
+\newcommand{\bn}{\boldsymbol{n}}
+\newcommand{\bo}{\boldsymbol{o}}
+\newcommand{\bp}{\boldsymbol{p}}
+\newcommand{\bq}{\boldsymbol{q}}
+\newcommand{\br}{\boldsymbol{r}}
+\newcommand{\bs}{\boldsymbol{s}}
+\newcommand{\bv}{\boldsymbol{v}}
+\newcommand{\bu}{\boldsymbol{u}}
+\newcommand{\bw}{\boldsymbol{w}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\by}{\boldsymbol{y}}
+\newcommand{\bz}{\boldsymbol{z}}
 
 % Capital Greek Letters
 \newcommand{\bAlpha}{\boldsymbol A}
@@ -204,19 +206,33 @@
 \newcommand{\dZ}{\mathbb{Z}}
 
 
+
 % VECTORS and MATRICES
 \newcommand{\vect}[1]{{\boldsymbol{\mathbf{#1}}}} % vector
 \newcommand{\mat}[1]{{\boldsymbol{\mathbf{#1}}}} % matrix
-\newcommand{\x}{\vect x}
-\newcommand{\y}{\vect y}
-\newcommand{\z}{\vect z}
-\newcommand{\identity}{\vect I}
-\newcommand{\zerovector}{\vect 0}
+\newcommand{\x}{\vect{x}}
+\newcommand{\y}{\vect{y}}
+\newcommand{\z}{\vect{z}}
+\newcommand{\identity}{\vect{I}}
+\newcommand{\zero}{\vect{0}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\U}{\mathbf{U}}
+
+
+
 
 % FUNCTIONS
 \newcommand{\f}{\vect f}
 \newcommand{\g}{\vect g}
 \newcommand{\h}{\vect h}
+
+% Operators
+\newcommand{\Det}[1]{\left|#1\right|}
+\newcommand{\matinv}[1]{{#1}^{-1}}
+\newcommand{\trace}{\text{tr}}
 
 
 
@@ -225,7 +241,7 @@
 \newcommand{\param}{\mathbbm{z}}
 \newcommand{\Param}{\mathbbm{Z}}
 \newcommand{\one}{\boldsymbol 1}
-\newcommand{\zero}{\boldsymbol 0}
+\newcommand{\zerovector}{\boldsymbol 0}
 
 
 % DISTANCES
@@ -239,9 +255,11 @@
 \newcommand{\dataset}{{\mathcal D}}
 
 % PROBABILITY DISTRIBUTIONS
+\newcommand{\entropy}{H}
 \newcommand{\prob}{p}
 \newcommand{\pdf}{p}
 \newcommand{\cdf}{F}
+\newcommand{\vprob}{q}
 \newcommand{\icdf}{F^{-1}}
 \newcommand{\Normal}[0]{\mathcal{N}} 
 \newcommand{\Uniform}[0]{\mathcal{U}} 
@@ -249,8 +267,14 @@
 \newcommand{\var}{{\mat \sigma}}
 \newcommand{\gaussian}{\mathcal N (\mathbf 0, \mathbf I)}
 \newcommand{\uniform}{\mathcal U (\mathbf 0, \mathbf I)}
+\newcommand{\Expected}{\mathbb{E}}
+\newcommand{\Variance}{\mathbb{E}}
+
 % GAUSSIAN PROCESSES
 \newcommand{\GP}[0]{\mathcal{GP}}
+\newcommand{\gpK}[0]{\mathbf{K}_\theta}
+\newcommand{\gpM}[0]{\mathbf{m}_\theta}
+\newcommand{\Kgp}[0]{\mathcal{GP}}
 \newcommand{\lengthscale}{}
 \newcommand{\ynoise}{{\episilon_y^{2}}}
 \newcommand{\xnoise}{{\episilon_x^{2}}}
