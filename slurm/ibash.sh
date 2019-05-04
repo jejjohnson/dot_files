@@ -6,8 +6,7 @@ cluster="erc"
 port=3004
 
 # load modules or conda environments here
-XDG_RUNTIME_DIR=""
-module load Anaconda3
+
 
 
 srun \
@@ -18,3 +17,6 @@ srun \
 --exclude=nodo17 \
 --job-name eman-ibash\
 --pty bash -i
+
+XDG_RUNTIME_DIR=""
+module load Anaconda3
