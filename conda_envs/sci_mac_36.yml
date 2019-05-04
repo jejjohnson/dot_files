@@ -40,10 +40,10 @@ dependencies:
 # Tensor Library
 - pytorch           # tensor library
 - torchvision       # pytorch visual library
+- tensorflow        # Tensor library (Anaconda CPU enhanced)
 # Gaussian Processes (GPs)
 - GPy               # standard GP library
 - gpytorch          # tensor GP library
 - pip:
-  - tensorflow      # Tensor library
   - pyro-ppl        # probabilistic programming lib
   - gpflow          # tensor GP library

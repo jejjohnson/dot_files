@@ -1,8 +1,6 @@
 name: jupyter
 channels:
 - defaults
-- pytorch
-- gpytorch
 - conda-forge
 dependencies:
 - python=3.6
@@ -15,6 +13,7 @@ dependencies:
 - ipywidgets
 - pip:
   - black
+  - blackcellmagic
   - dask_labextension
   - nbserverproxy
   - jupyterlab_snippets

@@ -41,9 +41,9 @@ dependencies:
 # Tensor Library
 - pytorch-cpu       # tensor library
 - torchvision-cpu   # pytorch visual library
+- tensorflow        # Tensor library (Anaconda CPU enhanced)
 # Gaussian Processes
 - gpytorch          # fast gaussian process library
 - pip:
   - pyro-ppl        # probabilistic programming lib
-  - tensorflow
   - gpflow

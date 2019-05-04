@@ -38,14 +38,16 @@ dependencies:
 - pytest
 # Scheduler
 - prefect
+# Formatter
+- black
 # Tensor Library
 - pytorch-cpu       # tensor library
 - torchvision-cpu   # pytorch visual library
+- tensorflow        # Tensor library (Anaconda CPU enhanced)
 # Gaussian Processes
 - gpytorch          # fast gaussian process library
 - GPy               # standard gaussian process library
 - pip:
   - pyro-ppl        # probabilistic programming lib
-  - tensorflow
   - keras
   - gpflow
