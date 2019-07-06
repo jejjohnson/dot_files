@@ -1,4 +1,4 @@
-name: jupyter
+name: jupyterlab
 channels:
 - defaults
 - conda-forge

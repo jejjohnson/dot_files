@@ -1,4 +1,4 @@
-name: jupyter
+name: jupyterlab
 channels:
 - defaults
 - conda-forge
@@ -6,12 +6,13 @@ dependencies:
 - python=3.6
 # GUI
 - jupyterlab        # standard GUI
-- jupyter
+- jupyter           
 - ipykernel
 - nb_conda_kernels
 - nodejs            # for extensions in jupyterlab
 - tqdm              # 
 - ipywidgets
+- pip
 - pip:
   - black
   - blackcellmagic
