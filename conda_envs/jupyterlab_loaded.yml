@@ -1,24 +1,28 @@
 name: jupyterlab
+
 channels:
 - defaults
 - conda-forge
+
 dependencies:
 - python=3.6
+
 # GUI
-- jupyterlab        # standard GUI
-- jupyter           
-- ipykernel
-- nb_conda_kernels
-- nodejs            # for extensions in jupyterlab
-- tqdm              # 
-- ipywidgets
-- pip
+- jupyter                           # Jupyter
+- jupyterlab                        # JupyterLab GUI
+- nb_conda_kernels                  # Access to other conda kernels
+- ipykernel                         # Accessible from other jupyter
+- nodejs                            # for extensions in jupyterlab
+- tqdm                              # For status bars
+- ipywidgets                        # For animated visualizations
+- pip                               # To install other packages
+
+# Pip Packages
 - pip:
-  - black
-  - blackcellmagic
-  - dask_labextension
-  - nbserverproxy
-  - jupyterlab_snippets
-  - jupyterlab_code_formatter
-  - jupyterlab-git
+  - black                           # Code Formatter (my personal favourite)
+  - blackcellmagic                  # Black Formatter
+  - dask_labextension               # Dask Dashboard
+  - nbserverproxy                   # Proxy (Needed for Dask Daskboard)
+  - jupyterlab_snippets             # Snippets
+  - jupyterlab-git                  # Git 
 
