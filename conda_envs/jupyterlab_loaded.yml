@@ -8,6 +8,7 @@ dependencies:
 - jupyterlab        # standard GUI
 - jupyter
 - ipykernel
+- nb_conda_kernels
 - nodejs            # for extensions in jupyterlab
 - tqdm              # 
 - ipywidgets
