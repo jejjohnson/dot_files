@@ -31,19 +31,25 @@ dependencies:
 - pytables          # high-level storage h5
 # GUI
 - jupyterlab        # standard GUI
+- ipykernel         # Be seen in other jupyterlabs
 - nodejs            # for extensions in jupyterlab
 - tqdm              # 
 # Testing
-- pytest
+- pytest            # Modern Testing
 # Scheduler
 - prefect
+# Formatter
+- black             # Uncompromising formatter
 # Tensor Library
-- pytorch           # tensor library
-- torchvision       # pytorch visual library
+- pytorch-cpu       # tensor library
+- torchvision-cpu   # pytorch visual library
 - tensorflow        # Tensor library (Anaconda CPU enhanced)
-# Gaussian Processes (GPs)
-- GPy               # standard GP library
-- gpytorch          # tensor GP library
+# Gaussian Processes
+- gpytorch          # fast gaussian process library
+- GPy               # standard gaussian process library
+- pip
 - pip:
   - pyro-ppl        # probabilistic programming lib
-  - gpflow          # tensor GP library
+  - keras           # DL (TF Wrapper)
+  - gpflow          # TF GP Library
+  - joblib          # Embarssingly parallel
