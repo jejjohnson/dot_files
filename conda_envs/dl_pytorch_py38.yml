@@ -38,7 +38,6 @@ dependencies:
   - pytorch-lightning
   - skorch
   # Jupyter
-  - ipython
   - ipykernel
   - ipywidgets
   # Formatters
