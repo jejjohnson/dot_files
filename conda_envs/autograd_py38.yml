@@ -25,6 +25,7 @@ dependencies:
 # Storage
 - hdf5                # standard large storage h5
 # Pip Packages
+- pip
 - pip:
   - jax
   - jaxlib
