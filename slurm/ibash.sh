@@ -15,7 +15,7 @@ srun \
 --cpus-per-task=28 \
 --time 100:00:00 \
 --exclude=nodo17 \
---job-name eman-ibash\
+--job-name ibash\
 --pty bash -i
 
 XDG_RUNTIME_DIR=""

@@ -1,0 +1,19 @@
+code_through/
+\.ipynb_checkpoints/
+\.idea/
+\__pycache__/
+*.log
+
+*.tex
+.idea/misc.xml
+.idea/rbig.iml
+.idea/workspace.xml
+
+# ignore the RBIG folder.
+\RBIG/
+
+# Ignore .vscode
+\.vscode/
+
+# Jupyter Notebook
+*.ipynb_checkpoints

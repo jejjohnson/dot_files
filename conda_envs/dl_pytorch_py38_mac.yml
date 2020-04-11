@@ -1,9 +1,9 @@
-name: auto_py36
+name: torch_py38
 channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.6
+- python=3.8
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
@@ -12,31 +12,42 @@ dependencies:
 - scikit-learn      # Machine Learning
 - scikit-image      # Image Processing
 - statsmodels       # Statistical Learning
-- pymc3             # Probabilistic programming library
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
-- cartopy           # Maps plotting
-- bokeh             # interactive plotting
+- conda-forge::cartopy
+- plotly::plotly==4.6.0
 # Scale
-- numba             # Jit compilation
-- cython            # C for python
 - dask              # Out-of-Core processing
 - dask-ml           # Out-of-Core machine learning
 # Storage
 - hdf5              # standard large storage h5
 - netcdf4           # large storage with metadata
-- pytables          # high-level storage h5
 # GUI
-- jupyterlab        # standard GUI
-- ipykernel
-- nodejs            # for extensions in jupyterlab
-- tqdm              # 
-# Testing
-- pytest
-# Scheduler
-- prefect
+- conda-forge::nodejs            # for extensions in jupyterlab
+- conda-forge::tqdm              # 
+# PYTORCH
+- pytorch::pytorch           # tensor library
+- pytorch::torchvision       # pytorch visual library
+# PYTORCH ECOSYSTEM
+- pytorch::captum
+- pytorch::fastai
 - pip:
-  - jaxlib
-  - jax
-  - autograd
+  # PYTORCH ECOSYSTEM
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - pytorch-lightning
+  - skorch
+  # Jupyter
+  - ipython
+  - ipykernel
+  - ipywidgets
+  # Formatters
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Extra
+  - netCDF4

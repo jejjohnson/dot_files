@@ -1,0 +1,37 @@
+name: jax_py38
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+# Standard Libraries
+- numpy               # Numerical Linear Algebra
+- scipy               # Scientific Computing
+- xarray              # Data structures
+- pandas              # Data structure
+- scikit-learn        # Machine Learning
+# Plotting Libraries
+- matplotlib          # standard plotting library
+- seaborn             # Stats viz library
+- cartopy             # Maps plotting
+- bokeh               # interactive plotting
+- conda-forge::nodejs # for extensions in jupyterlab
+- plotly::plotly      #
+# Storage
+- hdf5                # standard large storage h5
+# Pip Packages
+- pip:
+  - jax
+  - jaxlib
+  - flax
+  # Jupyter
+  - ipython
+  - ipykernel
+  - ipywidgets
+  # Formatters
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest

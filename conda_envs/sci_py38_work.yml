@@ -1,0 +1,86 @@
+name: sci_py38
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+# Standard Libraries
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- statsmodels       # Statistical Learning
+- pymc3             # Probabilistic programming library
+# Plotting
+- matplotlib
+- seaborn
+- bokeh
+- plotly::plotly==4.6.0
+- pyviz::geoviews
+- conda-forge::cartopy
+- datashader
+# Geospatial packages
+- geopandas
+- conda-forge::regionmask
+- conda-forge::xesmf
+# Scale
+- cython
+- numba
+- dask              # Out-of-Core processing
+- dask-ml           # Out-of-Core machine learning
+# Storage
+- hdf5              # standard large storage h5
+- pytables          # high-level storage h5
+- conda-forge::zarr
+# GUI
+- ipython
+- jupyter
+- jupyterlab
+- conda-forge::nb_conda_kernels     # Access to other conda kernels
+- conda-forge::nodejs               # for extensions in jupyterlab
+- conda-forge::tqdm       
+# PYTORCH
+- pytorch::pytorch           # tensor library
+- pytorch::torchvision       # pytorch visual library
+- pytorch::cpuonly
+# PYTORCH ECOSYSTEM
+- pytorch::captum
+- pytorch::fastai
+- pip
+- pip:
+  # JAX
+  - jax
+  - jaxlib
+  - flax
+  # TENSORFLOW ECOSYSTEM
+  - tensorflow                
+  - tensorflow-probability     
+  - gpflow
+  - "git+https://github.com/google/edward2.git#egg=edward2"
+  # PYTORCH ECOSYSTEM
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - pytorch-lightning
+  - skorch
+  # GPY
+  - "git+https://github.com/SheffieldML/GPy.git#egg=GPy"
+  # Jupyter
+  - ipykernel
+  - ipywidgets
+  # Formatters
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Extra
+  - kedro
+  - emukit
+  - netCDF4
+  - shapely
+  - affine
+  - netCDF4
+  - joblib          # Embarssingly parallel

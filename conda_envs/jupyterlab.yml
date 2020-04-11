@@ -3,12 +3,15 @@ channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.6
+- python=3.8
 # GUI
-- jupyterlab        # standard GUI
-- nb_conda_kernels
-- jupyter
-- ipykernel
-- nodejs            # for extensions in jupyterlab
-- tqdm              # 
-
+- ipython
+- jupyter                           # Jupyter
+- jupyterlab                        # JupyterLab GUI
+- conda-forge::nb_conda_kernels     # Access to other conda kernels
+- conda-forge::nodejs               # for extensions in jupyterlab
+- tqdm                              # For status bars
+- pip                               # To install other packages
+- pip:
+  - ipykernel
+  - ipywidgets

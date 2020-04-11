@@ -16,7 +16,7 @@ srun \
 --ntasks-per-node=1 \
 --cpus-per-task=2 \
 --time 100:00:00 \
---job-name eman-ibash-gpu \
+--job-name ibash-gpu \
 --pty bash -i
 
 XDG_RUNTIME_DIR=""
