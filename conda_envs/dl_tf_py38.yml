@@ -22,7 +22,6 @@ dependencies:
 - dask-ml           # Out-of-Core machine learning
 # Storage
 - hdf5              # standard large storage h5
-- netcdf4           # large storage with metadata
 # GUI
 - conda-forge::nodejs            # for extensions in jupyterlab
 - conda-forge::tqdm              # 
@@ -34,7 +33,6 @@ dependencies:
   - gpflow
   - "git+https://github.com/google/edward2.git#egg=edward2"
   # Jupyter
-  - ipython
   - ipykernel
   - ipywidgets
   # Formatters
