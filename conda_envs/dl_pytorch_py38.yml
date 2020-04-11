@@ -29,14 +29,11 @@ dependencies:
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
 - pytorch::cpuonly
-- pytorch::captum
-- pytorch::fastai
 - pip:
   # PYTORCH ECOSYSTEM
   - pyro-ppl        # probabilistic programming library
   - gpytorch        # Gaussian Processes
   - pytorch-lightning
-  - skorch
   # Jupyter
   - ipykernel
   - ipywidgets
