@@ -5,18 +5,23 @@ channels:
 dependencies:
 - python=3.8
 # Standard Libraries
-- numpy               # Numerical Linear Algebra
-- scipy               # Scientific Computing
-- xarray              # Data structures
-- pandas              # Data structure
-- scikit-learn        # Machine Learning
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- statsmodels       # Statistical Learning
 # Plotting Libraries
 - matplotlib          # standard plotting library
 - seaborn             # Stats viz library
-- cartopy             # Maps plotting
-- bokeh               # interactive plotting
+- conda-forge::cartopy             # Maps plotting
 - conda-forge::nodejs # for extensions in jupyterlab
-- plotly::plotly      #
+- plotly::plotly==4.6.0
+# Scale
+- numba
+- dask              # Out-of-Core processing
+- dask-ml           # Out-of-Core machine learning
 # Storage
 - hdf5                # standard large storage h5
 # Pip Packages
@@ -25,7 +30,6 @@ dependencies:
   - jaxlib
   - flax
   # Jupyter
-  - ipython
   - ipykernel
   - ipywidgets
   # Formatters
@@ -35,3 +39,5 @@ dependencies:
   - flake8
   - mypy
   - pytest
+  # Extra
+  - netCDF4
