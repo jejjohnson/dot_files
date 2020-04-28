@@ -24,22 +24,25 @@ VERSION = "0.0.1"
 KEYWORDS = ["machine learning python scikit-learn gaussianization"]
 
 # What packages are required for this module to be executed?
-REQUIRED = ["numpy", "scipy", "scikit-learn",]
+REQUIRED = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+]
 
 # What packages are optional?
 EXTRAS = {
     "dev": [
-        "flake8", "pylint",         # checkers
-        "black", "isort",           # formatters
-        "mypy",                     # Type checking
+        "flake8",
+        "pylint",  # checkers
+        "black",
+        "isort",  # formatters
+        "mypy",  # Type checking
+        "pyproject",
     ],
-    "notebooks": [
-        "ipykernels"                # Notebooks
-    ],
-    "examples": [
-        "matplotlib", "seaborn"     # almost always have plots
-        ],
-    "tests": ["pytest"],            # test library
+    "notebooks": ["ipykernels"],  # Notebooks
+    "examples": ["matplotlib", "seaborn"],  # almost always have plots
+    "tests": ["pytest", "pytest-cov"],  # test library
 }
 
 # The rest you shouldn't have to touch too much :)

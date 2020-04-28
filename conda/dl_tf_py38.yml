@@ -29,10 +29,10 @@ dependencies:
 - pip
 - pip:
   # TENSORFLOW ECOSYSTEM
-  - tensorflow                
-  - tensorflow-probability     
+  - tensorflow
+  - tensorflow-probability
   - gpflow
-  - "git+https://github.com/google/edward2.git#egg=edward2"
+  - -e "git+https://github.com/google/edward2.git#egg=edward2"
   # Jupyter
   - ipykernel
   - ipywidgets
