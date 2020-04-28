@@ -27,18 +27,69 @@ dependencies:
 # Pip Packages
 - pip
 - pip:
-  - jax
-  - jaxlib
-  - flax
+  # JAX ECOSYSTEM
+  - jax           # main library
+  - jaxlib        # main library
+  - flax          # neural networks
+  - numpyro       # probabilistic programming
+  - "-e git+https://github.com/Information-Fusion-Lab-Umass/NoX.git#egg=Nox"
+  - "-e git+https://github.com/rlouf/mcx.git#egg=mcx"
   # Jupyter
-  - ipykernel
-  - ipywidgets
+  - ipykernel               # allows jupyterlab to access env
+  - ipywidgets              # allows fancy figures in jlab
   # Formatters
-  - black
-  - pylint
-  - isort
-  - flake8
-  - mypy
-  - pytest
+  - black                   # no nonsense formatter
+  - pylint                  # linter
+  - isort                   # imports sorter
+  - flake8                  # linter
+  - mypy                    # type checker
+  - pytest                  # testing suite
+  - pyprojroot   # resolves paths in notebooks
+  # Extra
+  - netCDF4
+
+name: jax_py38
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+# Standard Libraries
+- numpy                     # Numerical Linear Algebra
+- scipy                     # Scientific Computing
+- xarray                    # Data structures
+- pandas                    # Data structure
+- scikit-learn              # Machine Learning
+- scikit-image              # Image Processing
+- statsmodels               # Statistical Learning
+# Plotting Libraries
+- matplotlib                # standard plotting library
+- seaborn                   # Stats viz library
+- conda-forge::cartopy             # Maps plotting
+- conda-forge::nodejs       # for extensions in jupyterlab
+- plotly::plotly==4.6.0
+# Scale
+- numba
+- dask                      # Out-of-Core processing
+- dask-ml                   # Out-of-Core machine learning
+# Storage
+- hdf5                      # standard large storage h5
+- conda-forge::pyprojroot   # resolves paths in notebooks
+# Pip Packages
+- pip
+- pip:
+  - jax                     # Jax
+  - jaxlib                  # Jax Library
+  - flax                    # Jax Neural Networks
+  # Jupyter
+  - ipykernel               # allows jupyterlab to access env
+  - ipywidgets              # allows fancy figures in jlab
+  # Formatters
+  - black                   # no nonsense formatter
+  - pylint                  # linter
+  - isort                   # imports sorter
+  - flake8                  # linter
+  - mypy                    # type checker
+  - pytest                  # testing suite
   # Extra
   - netCDF4
