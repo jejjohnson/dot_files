@@ -1,4 +1,4 @@
-name: sci_py38
+name: earthsci_py38
 channels:
 - defaults
 - conda-forge
@@ -20,12 +20,14 @@ dependencies:
 - plotly::plotly==4.6.0
 - pyviz::geoviews
 - conda-forge::cartopy
+
 - datashader
 # Geospatial packages
 - geopandas
 - conda-forge::regionmask
 - conda-forge::xesmf
 - conda-forge::xcube
+- conda-forge::rioxarray
 # Scale
 - cython
 - numba
@@ -33,7 +35,6 @@ dependencies:
 - dask-ml           # Out-of-Core machine learning
 # Storage
 - hdf5              # standard large storage h5
-- pytables          # high-level storage h5
 - conda-forge::zarr
 # GUI
 - conda-forge::nb_conda_kernels     # Access to other conda kernels
@@ -53,7 +54,9 @@ dependencies:
   - flake8
   - mypy
   - pytest
+  - pyproject
   # Extra
+  -"git+https://github.com/swartn/cmipdata.git"
   - emukit
   - netCDF4
   - shapely

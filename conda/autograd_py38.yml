@@ -84,6 +84,7 @@ dependencies:
   # Jupyter
   - ipykernel               # allows jupyterlab to access env
   - ipywidgets              # allows fancy figures in jlab
+  - spyder-kernels          # allows kernels to be accessed by spyder
   # Formatters
   - black                   # no nonsense formatter
   - pylint                  # linter
@@ -91,5 +92,6 @@ dependencies:
   - flake8                  # linter
   - mypy                    # type checker
   - pytest                  # testing suite
+  - pyproject
   # Extra
   - netCDF4
