@@ -80,6 +80,7 @@ dependencies:
 - pip:
   - jax                     # Jax
   - jaxlib                  # Jax Library
+  - numpyro                 # probabilitistic Jax library
   - flax                    # Jax Neural Networks
   # Jupyter
   - ipykernel               # allows jupyterlab to access env

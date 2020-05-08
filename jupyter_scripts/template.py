@@ -44,4 +44,4 @@ logging.basicConfig(
 logger = logging.getLogger()
 #logger.setLevel(logging.INFO)
 
-%load_ext autoreloa
+%load_ext autoreload

@@ -38,7 +38,7 @@ EXTRAS = {
         "black",
         "isort",  # formatters
         "mypy",  # Type checking
-        "pyproject",
+        "pyprojroot",
     ],
     "notebooks": ["ipykernels"],  # Notebooks
     "examples": ["matplotlib", "seaborn"],  # almost always have plots
