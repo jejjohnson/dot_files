@@ -1,4 +1,7 @@
-conda env create --name jupyterlab -f jupyterlab.yml
+conda env create --name jlab -f jupyterlab.yml
+
+# activate environment
+conda activate jupyterlab
 
 # Install jupyter lab extensions
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
