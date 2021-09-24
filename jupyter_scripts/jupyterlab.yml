@@ -10,7 +10,7 @@ dependencies:
 - conda-forge::spyder-kernels       # Access via spyder kernels
 - conda-forge::nodejs               # for extensions in jupyterlab
 - pyviz::holoviews
-- pyviz::bokeh
+- bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
 - tqdm                              # For status bars
 - pip                               # To install other packages
