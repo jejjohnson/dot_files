@@ -1,6 +1,3 @@
-conda env create --name jlab -f jupyterlab.yml
-
-# activate environment
 conda activate jlab
 
 # generate config file
@@ -11,3 +8,4 @@ echo "c.NotebookApp.open_browser = False" >> ~/.jupyter/jupyter_notebook_config.
 
 # specify to listen to any port
 echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
+
