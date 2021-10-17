@@ -3,8 +3,8 @@
 #OAR --name jlab_cpu
 #OAR --project pr-data-ocean
 #OAR -l /nodes=1,walltime=10:00:00
-#OAR --stdout /home/johnsonj/logs/jupyterlab_cpu.log
-#OAR --stderr /home/johnsonj/errs/jupyterlab_cpu.log
+#OAR --stdout /bettik/johnsonj/logs/jupyterlab_cpu.log
+#OAR --stderr /bettik/johnsonj/errs/jupyterlab_cpu.log
 
 
 # get tunneling info
