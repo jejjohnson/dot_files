@@ -5,6 +5,7 @@ channels:
 dependencies:
 - python=3.9
 # GUI
+- ipykernel
 - conda-forge::jupyterlab           # JupyterLab GUI
 - conda-forge::nb_conda_kernels     # Access to other conda kernels
 - conda-forge::spyder-kernels       # Access via spyder kernels
