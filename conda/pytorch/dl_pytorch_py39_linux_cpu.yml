@@ -1,0 +1,49 @@
+name: torch_cpu_py38
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+# Standard Libraries
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- statsmodels       # Statistical Learning
+# Plotting Libraries
+- matplotlib        # standard plotting library
+- seaborn           # Stats viz library
+- conda-forge::cartopy
+- plotly::plotly==4.6.0
+# Scale
+- dask              # Out-of-Core processing
+- dask-ml           # Out-of-Core machine learning
+# Storage
+- hdf5              # standard large storage h5
+# GUI
+- conda-forge::nodejs            # for extensions in jupyterlab
+- conda-forge::tqdm              # 
+# PYTORCH
+- pytorch::pytorch           # tensor library
+- pytorch::torchvision       # pytorch visual library
+- pytorch::cpuonly
+- pip
+- pip:
+  # PYTORCH ECOSYSTEM
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - pytorch-lightning
+  # Jupyter
+  - ipykernel
+  - ipywidgets
+  # Formatters
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Extra
+  - netCDF4

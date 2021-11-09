@@ -3,7 +3,7 @@ channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.8
+- python=3.9
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
@@ -20,7 +20,6 @@ dependencies:
 - plotly::plotly==4.6.0
 - pyviz::geoviews
 - conda-forge::cartopy
-
 - datashader
 # Geospatial packages
 - geopandas
@@ -42,8 +41,6 @@ dependencies:
 - conda-forge::tqdm       
 - pip
 - pip:
-  # GPY
-  - "git+https://github.com/SheffieldML/GPy.git#egg=GPy"
   # Jupyter
   - ipykernel
   - ipywidgets
@@ -56,7 +53,7 @@ dependencies:
   - pytest
   - pyproject
   # Extra
-  -"git+https://github.com/swartn/cmipdata.git"
+  - "git+https://github.com/swartn/cmipdata.git"
   - emukit
   - netCDF4
   - shapely

@@ -1,9 +1,9 @@
-name: torch_py38
+name: torch_gpu_py39
 channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.8
+- python=3.9
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
@@ -15,26 +15,26 @@ dependencies:
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
-- conda-forge::cartopy
-- plotly::plotly==4.6.0
-# Scale
-- dask              # Out-of-Core processing
-- dask-ml           # Out-of-Core machine learning
 # Storage
 - hdf5              # standard large storage h5
+- conda-forge::zarr
 # GUI
-- conda-forge::nodejs            # for extensions in jupyterlab
-- conda-forge::tqdm              # 
+- conda-forge::ipywidgets
+- ipykernel
+- conda-forge::tqdm           # 
 # PYTORCH
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
-- pytorch::cpuonly
+- pytorch::torchaudio
+- pytorch::cudatoolkit==11.3
 - pip
 - pip:
   # PYTORCH ECOSYSTEM
   - pyro-ppl        # probabilistic programming library
   - gpytorch        # Gaussian Processes
   - pytorch-lightning
+  - lightning-bolts
+  - lightning-flash
   # Jupyter
   - ipykernel
   - ipywidgets
@@ -46,4 +46,4 @@ dependencies:
   - mypy
   - pytest
   # Extra
-  - netCDF4
+  - pyprojroot

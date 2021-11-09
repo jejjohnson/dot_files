@@ -13,7 +13,6 @@ dependencies:
 - conda-forge::jupyterlab-git
 - conda-forge::jupyter-server-proxy
 - conda-forge::ipywidgets
-- conda-forge::nbclassic=0.2.8
 - pyviz::holoviews
 - bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
