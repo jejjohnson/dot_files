@@ -2,16 +2,16 @@ name: torch_gpu_py39
 channels:
 - defaults
 - conda-forge
+- pytorch
 dependencies:
 - python=3.9
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
-- xarray            # Data structures
 - pandas            # Data structure
 - scikit-learn      # Machine Learning
 - scikit-image      # Image Processing
-- statsmodels       # Statistical Learning
+- conda-forge::statsmodels
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
@@ -26,7 +26,7 @@ dependencies:
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
 - pytorch::torchaudio
-- pytorch::cudatoolkit==11.3
+- pytorch::cudatoolkit=11.3
 - pip
 - pip:
   # PYTORCH ECOSYSTEM
