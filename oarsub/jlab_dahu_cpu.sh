@@ -5,6 +5,7 @@
 #OAR -l /nodes=1,walltime=10:00:00
 #OAR --stdout /bettik/johnsonj/logs/jupyterlab_cpu.log
 #OAR --stderr /bettik/johnsonj/errs/jupyterlab_cpu.log
+#OAR -e 
 
 
 # get tunneling info
