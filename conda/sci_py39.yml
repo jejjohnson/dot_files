@@ -1,9 +1,9 @@
-name: sci_py38
+name: sci_py39
 channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.8
+- python=3.9
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
@@ -39,10 +39,6 @@ dependencies:
 - conda-forge::tqdm       
 - pip
 - pip:
-  # JAX
-  - jax
-  - jaxlib
-  - flax
   # GPY
   - "git+https://github.com/SheffieldML/GPy.git#egg=GPy"
   # Jupyter
@@ -61,3 +57,4 @@ dependencies:
   - affine
   - netCDF4
   - joblib          # Embarssingly parallel
+  - einops
