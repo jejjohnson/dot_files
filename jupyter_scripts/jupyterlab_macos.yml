@@ -3,21 +3,19 @@ channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.9
+- python=3.8
 # GUI
-- ipykernel
-- conda-forge::jupyterlab           # JupyterLab GUI
-- conda-forge::nb_conda_kernels     # Access to other conda kernels
+- conda-forge::jupyterlab 
 - conda-forge::spyder-kernels       # Access via spyder kernels
 - conda-forge::nodejs               # for extensions in jupyterlab
 - conda-forge::jupyterlab-git
 - conda-forge::jupyter-server-proxy
 - conda-forge::ipywidgets
-- conda-forge::nbclassic=0.2.8
 - pyviz::holoviews
 - bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
-- ipykernel
+- ipykernel          # JupyterLab GUI
+- nb_conda_kernels     # Access to other conda kernels
 - tqdm                              # For status bars
 - pip                               # To install other packages
 - pip:
