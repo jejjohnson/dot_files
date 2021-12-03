@@ -1,0 +1,56 @@
+name: sci_jax_py39
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy            # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- scikit-learn     # Machine Learning
+- conda-forge::statsmodels
+- scikit-image
+- numba
+# Plotting Libraries
+- matplotlib        # standard plotting library
+- seaborn          # Stats viz library
+# JAX FRAMEWORK
+- conda-forge::jax
+- conda-forge::jaxlib
+# TENSORFLOW FRAMEWORK
+- conda-forge::tensorflow>=2.6
+- conda-forge::tensorflow-probability>=0.14.1
+- conda-forge::tensorflow-datasets
+- ipykernel
+- conda-forge::tqdm
+- pip
+- pip:
+  # Jax framework
+  - distrax
+  - chex
+  - optax
+  - edward2[jax]
+  - treex
+  - treeo
+  - elegy
+  - objax
+  - bayesnewton
+  - einops
+  - dm-pix
+  - flax
+  - dm-haiku
+  - numpyro
+  # formatting
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Notebook stuff
+  - pyprojroot
+  # logging
+  - wandb
+  # plotting
+  - celluloid
+  - corner
