@@ -1,4 +1,4 @@
-name: jax_cpu_py39
+name: jax_gf
 channels:
 - defaults
 - conda-forge
@@ -14,6 +14,8 @@ dependencies:
 - matplotlib        # standard plotting library
 - seaborn          # Stats viz library
 # GUI
+- conda-forge::jax
+- conda-forge::jaxlib
 - conda-forge::ipywidgets
 - ipykernel
 - conda-forge::tqdm
@@ -22,18 +24,15 @@ dependencies:
   # Jax framework
   # - "https://storage.googleapis.com/jax-releases/mac/jaxlib-0.1.73-cp39-none-macosx_10_9_x86_64.whl"
   # - jax
-  - "jax[cpu] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
   # - git+git://github.com/deepmind/tree.git
   - distrax
   - chex
   - optax
   - numpyro
-  - edward2[jax]
-  - objax
-  - bayesnewton
-  - tensorflow-probability>=0.12.1
+  - tensorflow-probability>=0.14.1
   - treex
   - treeo
+  - flax
   - elegy
   - einops
   - dm-pix

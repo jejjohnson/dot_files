@@ -36,6 +36,8 @@ dependencies:
   - tensorflow-probability>=0.12.1
   - treex
   - treeo
+  - haiku
+  - flax
   - elegy
   - einops
   - dm-pix
