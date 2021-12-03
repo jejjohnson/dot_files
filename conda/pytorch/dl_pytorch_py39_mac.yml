@@ -15,8 +15,6 @@ dependencies:
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
-- conda-forge::cartopy
-- plotly::plotly>=4.6.0
 # Scale
 - dask              # Out-of-Core processing
 - dask-ml           # Out-of-Core machine learning

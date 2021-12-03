@@ -1,4 +1,4 @@
-name: earthsci_py38
+name: eo_py39
 channels:
 - defaults
 - conda-forge
@@ -24,6 +24,8 @@ dependencies:
 # Geospatial packages
 - geopandas
 - conda-forge::regionmask
+# - conda-forge::esmf
+# - conda-forge::esmpy
 - conda-forge::xesmf
 - conda-forge::xcube
 - conda-forge::rioxarray
@@ -36,7 +38,6 @@ dependencies:
 - hdf5              # standard large storage h5
 - conda-forge::zarr
 # GUI
-- conda-forge::nb_conda_kernels     # Access to other conda kernels
 - conda-forge::nodejs               # for extensions in jupyterlab
 - conda-forge::tqdm       
 - pip
@@ -53,7 +54,7 @@ dependencies:
   - pytest
   - pyproject
   # Extra
-  - "git+https://github.com/swartn/cmipdata.git"
+  - git+https://github.com/swartn/cmipdata.git
   - emukit
   - netCDF4
   - shapely

@@ -39,8 +39,8 @@ dependencies:
 - conda-forge::tqdm       
 - pip
 - pip:
-  # GPY
-  - "git+https://github.com/SheffieldML/GPy.git#egg=GPy"
+  - gpflux
+  - edward2[tf- nightly]
   # Jupyter
   - ipykernel
   - ipywidgets
