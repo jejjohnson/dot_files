@@ -51,6 +51,10 @@ dependencies:
 - conda-forge::tqdm
 - pip
 - pip:
+  # OTHER EO
+  - netCDF4
+  - shapely
+  - affine
   # PYTORCH ECOSYSTEM
   - pyro-ppl        # probabilistic programming library
   - gpytorch        # Gaussian Processes
@@ -58,7 +62,7 @@ dependencies:
   - torchmetrics
   - lightning-bolts
   - skorch
-  - rastervision
+  # - rastervision
   - pytorch-eo
   - einops
   # formatting

@@ -17,7 +17,7 @@ dependencies:
 - matplotlib
 - seaborn
 - bokeh
-- plotly::plotly==4.6.0
+- plotly::plotly>=4.6.0
 - pyviz::geoviews
 - conda-forge::cartopy
 - datashader
@@ -29,6 +29,9 @@ dependencies:
 - conda-forge::xesmf
 - conda-forge::xcube
 - conda-forge::rioxarray
+- conda-forge::shapely
+- conda-forge::pooch
+- conda-forge::cftime
 # Scale
 - cython
 - numba
