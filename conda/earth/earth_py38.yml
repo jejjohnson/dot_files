@@ -59,5 +59,4 @@ dependencies:
   - netCDF4
   - shapely
   - affine
-  - netCDF4
   - joblib          # Embarssingly parallel

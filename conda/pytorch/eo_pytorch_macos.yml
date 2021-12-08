@@ -1,0 +1,86 @@
+name: eo_torch_mgp
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- statsmodels       # Statistical Learning
+# Geospatial packages
+- geopandas
+- conda-forge::regionmask
+# - conda-forge::esmf
+# - conda-forge::esmpy
+- conda-forge::xesmf
+- conda-forge::xcube
+- conda-forge::rioxarray
+- conda-forge::shapely
+- conda-forge::pooch
+- conda-forge::cftime
+- affine
+# Scale
+- cython
+- numba
+- dask              # Out-of-Core processing
+- dask-ml           # Out-of-Core machine learning
+# PLOTTING LIBRARY
+- matplotlib        # standard plotting library
+- seaborn           # Stats viz library
+- bokeh
+- plotly::plotly>=4.6.0
+- pyviz::geoviews
+- conda-forge::cartopy
+- datashader       
+# Storage
+- hdf5              # standard large storage h5
+- conda-forge::zarr
+# PYTORCH ECOSYSTEM
+- pytorch::pytorch           # tensor library
+- pytorch::torchvision       # pytorch visual library
+- pytorch::torchaudio       # pytorch visual library
+- pytorch::captum
+- pytorch::fastai
+# GUI
+- ipykernel
+- conda-forge::tqdm
+- pip
+- pip:
+  # PYTORCH ECOSYSTEM
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - pytorch-lightning
+  - torchmetrics
+  - lightning-bolts
+  - skorch
+  - rastervision
+  - pytorch-eo
+  - einops
+  # formatting
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  - pre-commit
+  - rich
+  - sh
+  - pudb
+  # Notebook stuff
+  - pyprojroot
+  - python-dotenv
+  # logging
+  - wandb
+  # experiment
+  - hydra-core
+  - hydra-colorlog
+  - hydra-optuna-sweeper
+  # plotting
+  - celluloid
+  - corner
