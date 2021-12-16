@@ -1,0 +1,54 @@
+name: jax_cpu_py39
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy            # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- scikit-learn     # Machine Learning
+- conda-forge::statsmodels
+- scikit-image
+# Plotting Libraries
+- matplotlib        # standard plotting library
+- seaborn          # Stats viz library
+# GUI
+- conda-forge::ipywidgets
+- ipykernel
+- conda-forge::tqdm
+- pip
+- pip:
+  # Jax framework
+  # - "https://storage.googleapis.com/jax-releases/mac/jaxlib-0.1.73-cp39-none-macosx_10_9_x86_64.whl"
+  # - jax
+  - "jax[cpu] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
+  # - git+git://github.com/deepmind/tree.git
+  - distrax
+  - chex
+  - optax
+  - numpyro
+  - edward2[jax]
+  - objax
+  - bayesnewton
+  - tensorflow-probability>=0.12.1
+  - treex
+  - treeo
+  - elegy
+  - einops
+  - dm-pix
+  # formatting
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Notebook stuff
+  - pyprojroot
+  # logging
+  - wandb
+  # plotting
+  - seaborn
+  - celluloid
+  - corner

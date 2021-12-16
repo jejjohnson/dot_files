@@ -1,0 +1,54 @@
+name: jax_gp
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy            # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- scikit-learn     # Machine Learning
+- conda-forge::statsmodels
+- scikit-image
+- numba
+- dask
+- dask-ml
+# Plotting Libraries
+- matplotlib        # standard plotting library
+- seaborn          # Stats viz library
+# JAX FRAMEWORK
+- conda-forge::jax
+- conda-forge::jaxlib
+# TENSORFLOW FRAMEWORK
+- conda-forge::tensorflow-probability>=0.14.1
+- conda-forge::tensorflow-datasets
+- ipykernel
+- conda-forge::tqdm
+- pip
+- pip:
+  # Jax framework
+  # - "https://storage.googleapis.com/jax-releases/mac/jaxlib-0.1.73-cp39-none-macosx_10_9_x86_64.whl"
+  # - jax
+  # - git+git://github.com/deepmind/tree.git
+  - distrax
+  - chex
+  - optax
+  - edward2[jax]
+  - numpyro
+  - objax
+  - bayesnewton
+  - einops
+  # formatting
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Notebook stuff
+  - pyprojroot
+  # logging
+  - wandb
+  # plotting
+  - celluloid
+  - corner

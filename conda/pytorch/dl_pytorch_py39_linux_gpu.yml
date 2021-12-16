@@ -1,0 +1,49 @@
+name: torch_gpu_py39
+channels:
+- defaults
+- conda-forge
+- pytorch
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- conda-forge::statsmodels
+# Plotting Libraries
+- matplotlib        # standard plotting library
+- seaborn           # Stats viz library
+# Storage
+- hdf5              # standard large storage h5
+- conda-forge::zarr
+# GUI
+- conda-forge::ipywidgets
+- ipykernel
+- conda-forge::tqdm           # 
+# PYTORCH
+- pytorch::pytorch           # tensor library
+- pytorch::torchvision       # pytorch visual library
+- pytorch::torchaudio
+- pytorch::cudatoolkit=11.3
+- pip
+- pip:
+  # PYTORCH ECOSYSTEM
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - pytorch-lightning
+  - lightning-bolts
+  - lightning-flash
+  # Jupyter
+  - ipykernel
+  - ipywidgets
+  # Formatters
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Extra
+  - pyprojroot
