@@ -24,7 +24,7 @@ cluster=${cluster}
 port=${port}
 
 Command to create ssh tunnel:
-ssh -N -f -L ${port}:${node}:${port} ${user}@${cluster}.uv.es
+ssh -N -f -L ${port}:${node}:${port} ${user}@${cluster}
 
 Command to create ssh tunnel through
 ssh -N -f -L ${port}:localhost:${port} $
