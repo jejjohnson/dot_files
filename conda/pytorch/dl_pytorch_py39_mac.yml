@@ -30,6 +30,10 @@ dependencies:
 - pytorch::torchaudio       # pytorch visual library
 - pytorch::captum
 - pytorch::fastai
+# JUPYTER
+- ipykernel
+- ipython
+- conda-forge::ipywidgets
 # PIP PACKAGES
 - pip
 - pip:
@@ -38,10 +42,6 @@ dependencies:
   - gpytorch        # Gaussian Processes
   - pytorch-lightning
   - skorch
-  # Jupyter
-  - ipython
-  - ipykernel
-  - ipywidgets
   # Formatters
   - black
   - pylint

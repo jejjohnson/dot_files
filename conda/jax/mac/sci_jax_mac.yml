@@ -19,12 +19,17 @@ dependencies:
 - conda-forge::jaxlib
 # TENSORFLOW FRAMEWORK
 - conda-forge::tensorflow>=2.6
-- conda-forge::tensorflow-probability>=0.14.1
-- conda-forge::tensorflow-datasets
+# - conda-forge::tensorflow-probability>=0.14.1
+# - conda-forge::tensorflow-datasets
+# GUI
+- conda-forge::ipywidgets
 - ipykernel
 - conda-forge::tqdm
 - pip
 - pip:
+  # TENSORFLOW
+  - tfds-nightly
+  - tfp-nightly
   # Jax framework
   - distrax
   - chex
