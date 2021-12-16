@@ -1,4 +1,4 @@
-name: jax_gpu_py39
+name: jax_cpu_py39
 channels:
 - defaults
 - conda-forge
@@ -14,6 +14,9 @@ dependencies:
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn          # Stats viz library
+# JAX FRAMEWORK
+- conda-forge::jax
+- conda-forge::jaxlib
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -25,7 +28,6 @@ dependencies:
   - tfds-nightly
   - tfp-nightly
   # Jax framework
-  - "jax[cpu]"
   - distrax
   - chex
   - optax
