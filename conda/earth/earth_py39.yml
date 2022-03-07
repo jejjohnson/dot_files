@@ -32,6 +32,7 @@ dependencies:
 - conda-forge::shapely
 - conda-forge::pooch
 - conda-forge::cftime
+- conda-forge::pyinterp
 # Scale
 - cython
 - numba
