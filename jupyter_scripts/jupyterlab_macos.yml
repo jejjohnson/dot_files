@@ -1,12 +1,12 @@
 name: jlab
 channels:
-- defaults
 - conda-forge
+- defaults
 dependencies:
-- python=3.9
+- python=3.10
 # GUI
 - conda-forge::jupyterlab 
-- anaconda::nb_conda_kernels==2.3.0     # Access to other conda kernels
+- conda-forge::nb_conda_kernels==2.3.1  # Access to other conda kernels
 - conda-forge::spyder-kernels       # Access via spyder kernels
 - conda-forge::nodejs               # for extensions in jupyterlab
 - conda-forge::jupyterlab-git
@@ -15,7 +15,6 @@ dependencies:
 - pyviz::holoviews
 - bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
-
 - tqdm                              # For status bars
 - pip                               # To install other packages
 - pip:
