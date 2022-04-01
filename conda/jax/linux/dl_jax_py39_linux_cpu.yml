@@ -5,18 +5,39 @@ channels:
 dependencies:
 - python=3.9
 # Standard Libraries
-- numpy            # Numerical Linear Algebra
+- numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
-- scikit-learn     # Machine Learning
-- conda-forge::statsmodels
-- scikit-image
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- scikit-image      # Image Processing
+- statsmodels       # Statistical Learning
+- pymc3             # Probabilistic programming library
+# Plotting
+- matplotlib
+- seaborn
+- bokeh
+- plotly::plotly>=4.6.0
+- pyviz::geoviews
+- conda-forge::cartopy
+- datashader
+# Geospatial packages
+- geopandas
+- conda-forge::regionmask
+# - conda-forge::esmf
+# - conda-forge::esmpy
+- conda-forge::xesmf
+- conda-forge::xcube
+- conda-forge::rioxarray
+- conda-forge::shapely
+- conda-forge::pooch
+- conda-forge::cftime
+- conda-forge::pyinterp
+# Scale
+- cython
 - numba
-# Plotting Libraries
-- matplotlib        # standard plotting library
-- seaborn          # Stats viz library
-# JAX FRAMEWORK
-- conda-forge::jax
-- conda-forge::jaxlib
+- dask              # Out-of-Core processing
+- dask-ml           # Out-of-Core machine learning
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -24,10 +45,10 @@ dependencies:
 - pip
 - pip:
   # TENSORFLOW
-  - tensorflow
   - tfds-nightly
-  - tfp-nightly
+  - tfp-nightly[jax]
   # Jax framework
+  - jax[cpu]
   - distrax
   - chex
   - optax
@@ -53,6 +74,7 @@ dependencies:
   - pyprojroot
   # logging
   - wandb
+  - loguru
   # plotting
   - celluloid
   - corner
