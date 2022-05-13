@@ -16,8 +16,8 @@ dependencies:
 - matplotlib        # standard plotting library
 - seaborn          # Stats viz library
 # JAX FRAMEWORK
-- conda-forge::jax
-- conda-forge::jaxlib
+# - conda-forge::jax
+# - conda-forge::jaxlib
 # TENSORFLOW FRAMEWORK
 - conda-forge::tensorflow>=2.6
 # - conda-forge::tensorflow-probability>=0.14.1
@@ -28,25 +28,27 @@ dependencies:
 - conda-forge::tqdm
 - pip
 - pip:
+  - jax[cpu]
   # TENSORFLOW
-  - tfds-nightly
-  - tfp-nightly[jax]
+  # - tfds-nightly
+  # - tfp-nightly[jax]
   # Jax framework
-  - distrax
-  - chex
-  - optax
-  - edward2[jax]
-  - treex
-  - treeo
-  - elegy
-  - objax
-  - bayesnewton
-  - einops
-  - dm-pix
-  - flax
-  - dm-haiku
-  - numpyro
-  - git+https://github.com/google/jaxopt
+  # - distrax
+  # - chex
+  # - optax
+  # - edward2[jax]
+  # - equinox
+  # - diffrax
+  # - tensor_annotations
+  # - tensor_annotations_jax_stubs
+  # - objax
+  # - bayesnewton
+  # - einops
+  # - dm-pix
+  # - flax
+  # - dm-haiku
+  # - numpyro
+  # - jaxopt
   # formatting
   - black
   - pylint

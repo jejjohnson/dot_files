@@ -14,8 +14,8 @@ dependencies:
 - matplotlib        # standard plotting library
 - seaborn          # Stats viz library
 # GUI
-- conda-forge::jax
-- conda-forge::jaxlib
+# - conda-forge::jax
+# - conda-forge::jaxlib
 - conda-forge::tensorflow>=2.6
 - conda-forge::tensorflow-probability>=0.14.1
 - conda-forge::tensorflow-datasets
@@ -26,7 +26,7 @@ dependencies:
 - pip:
   # Jax framework
   # - "https://storage.googleapis.com/jax-releases/mac/jaxlib-0.1.73-cp39-none-macosx_10_9_x86_64.whl"
-  # - jax
+  # - jax[cpu]
   # - git+git://github.com/deepmind/tree.git
   - distrax
   - chex
