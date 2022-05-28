@@ -13,6 +13,7 @@ dependencies:
 - conda-forge::jupyterlab-git
 - conda-forge::jupyter-server-proxy
 - conda-forge::ipywidgets
+- anaconda::git                     # most updated version for git
 - pyviz::holoviews
 - bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
@@ -21,4 +22,3 @@ dependencies:
 - pip                               # To install other packages
 - pip:
   - dask_labextension
-  # - lckr-jupyterlab-variableinspector

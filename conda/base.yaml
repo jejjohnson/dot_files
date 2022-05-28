@@ -1,0 +1,14 @@
+name: base
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# standard libraries
+- anaconda::git
+# terminal stuff
+- tmux
+- tmuxp
+- zsh
+# jupyterbooks
+- jupyter-book

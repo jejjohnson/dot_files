@@ -1,0 +1,3 @@
+ envs_dirs:
+   - /gpfswork/rech/cli/uvo53rl/.conda/envs
+   # - /gpfslocalsup/pub/anaconda-py3/2021.05/envs/
