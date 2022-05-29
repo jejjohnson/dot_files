@@ -1,0 +1,7 @@
+session_name: jlab
+windows:
+  - window_name: jlab
+    panes:
+    - shell_command: |
+        cd $HOME/code_projects
+        jlab 3210

@@ -1,0 +1,8 @@
+channels:
+  - defaults
+  - conda-forge
+ssl_verify: true
+changeps1: false
+envs_dirs:
+  # - /Users/eman/mambaforge/envs/
+  - /Users/eman/miniconda3/envs/    

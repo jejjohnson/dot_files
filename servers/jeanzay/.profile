@@ -22,14 +22,29 @@ function srun_cpu(){
     # go to work directory
     cd $WORKDIR &
     # do srun
-    srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=08:00:00 --pty bash
+    srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost --pty bash
 }
 
 function srun_gpu(){
     # go to work directory
     cd $WORKDIR &
     # do srun
-    srun --pty --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --time=08:00:00 bash
+    srun --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00 --pty bash
+}
+
+function slloc_cpu(){
+    cores=${1:-16}
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    salloc --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost
+}
+
+function slloc_gpu(){
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
 }
 
 function jlab(){

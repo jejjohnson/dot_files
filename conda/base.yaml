@@ -6,9 +6,13 @@ dependencies:
 - python=3.9
 # standard libraries
 - anaconda::git
+- conda-forge::gh
 # terminal stuff
-- tmux
+- conda-forge::tmux
 - tmuxp
 - zsh
-# jupyterbooks
-- jupyter-book
+- pip
+- pip:
+  - tmuxp
+  - jupyter-book
+  - wandb

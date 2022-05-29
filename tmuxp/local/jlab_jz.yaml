@@ -1,0 +1,13 @@
+session_name: jlab_jz
+windows:
+  - window_name: jlab
+    panes:
+    - shell_command: |
+        ssh jean_zay
+        cd $WORKDIR
+        sbatch $HOMEDIR/bin/jlab_cpu.sh
+
+  - window_name: vpn
+    panes:
+    - shell_command: sshuttle --dns -HN @$HOME/.sshuttle/meom_cal1.conf
+  

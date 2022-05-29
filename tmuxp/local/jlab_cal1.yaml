@@ -1,0 +1,12 @@
+session_name: jlab_cal1
+windows:
+  - window_name: jlab
+    panes:
+    - shell_command: |
+        ssh meom_cal1
+        cd $WORKDIR
+        sbatch $HOMEDIR/bin/jlab_sbatch.sh
+
+  - window_name: git
+    panes:
+    - shell_command: ssh meom_cal1

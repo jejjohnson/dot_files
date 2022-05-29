@@ -1,0 +1,5 @@
+Host jean_zay
+		User uvo53rl
+		HostName jean-zay.idris.fr
+		IdentityFile ~/.ssh/id_jz
+

@@ -10,14 +10,12 @@ dependencies:
 - conda-forge::nb_conda_kernels     # Access to other conda kernels
 - conda-forge::spyder-kernels       # Access via spyder kernels
 - conda-forge::nodejs               # for extensions in jupyterlab
-- conda-forge::jupyterlab-git
+- conda-forge::jupyterlab-git       # git for jupyter lab
 - conda-forge::jupyter-server-proxy
 - conda-forge::ipywidgets
 - anaconda::git                     # most updated version for git
+- conda-forge::gh                   # github git system
 - pyviz::holoviews
-- bokeh::bokeh
-- bokeh::jupyter_bokeh              # Bokeh
-- ipykernel
 - tqdm                              # For status bars
 - pip                               # To install other packages
 - pip:

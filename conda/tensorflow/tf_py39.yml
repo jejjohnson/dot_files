@@ -1,0 +1,51 @@
+name: tf_py39
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.9
+# Standard Libraries
+- numpy             # Numerical Linear Algebra
+- scipy             # Scientific Computing
+- xarray            # Data structures
+- pandas            # Data structure
+- scikit-learn      # Machine Learning
+- conda-forge::pooch
+- conda-forge::cftime
+- conda-forge::pyinterp
+# Plotting
+- matplotlib
+- seaborn
+- pyviz::geoviews
+- pyviz::hvplot
+- conda-forge::cartopy
+- datashader
+- conda-forge::xmovie
+- conda-forge::ffmpeg
+# GUI
+- conda-forge::ipywidgets
+- ipykernel
+- conda-forge::tqdm
+- pip
+- pip:
+  # TENSORFLOW
+  - tensorflow
+  - tensorflow-probability
+  - edward
+  - gpflow
+  - gpflux
+  # formatting
+  - black
+  - pylint
+  - isort
+  - flake8
+  - mypy
+  - pytest
+  # Notebook stuff
+  - pyprojroot
+  # logging
+  - wandb
+  - loguru
+  # plotting
+  - celluloid
+  - corner
