@@ -1,0 +1,21 @@
+name: markovflow
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - python-wget
+  - jupyter
+  - ipython
+  - arviz
+  - cudatoolkit=11
+  - cudnn=8
+  - pip
+  - tensorflow
+  - gpflow
+  - pip:
+    - git+https://github.com/secondmind-labs/markovflow

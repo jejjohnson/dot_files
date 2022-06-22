@@ -5,14 +5,13 @@ channels:
 dependencies:
 - python=3.9
 # Standard Libraries
-- numpy            # Numerical Linear Algebra
-- scipy             # Scientific Computing
-- scikit-learn     # Machine Learning
-- conda-forge::statsmodels
-- scikit-image
+- numpy==1.22.4            # Numerical Linear Algebra
+- scipy==1.8.1             # Scientific Computing
+- scikit-learn==1.1.1     # Machine Learning
+- scikit-image==0.19.2
 # Plotting Libraries
-- matplotlib        # standard plotting library
-- seaborn          # Stats viz library
+- matplotlib==3.5.2        # standard plotting library
+- seaborn==0.11.2          # Stats viz library
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -28,8 +27,8 @@ dependencies:
   - optax
   - numpyro
   # - tensorflow-probability>=0.12.1
-  - treex
-  - treeo
+  - equinox
+  - diffrax
   - elegy
   - einops
   # formatting
