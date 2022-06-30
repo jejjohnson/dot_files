@@ -7,7 +7,7 @@ dependencies:
 # Standard Libraries
 - numpy            # Numerical Linear Algebra
 - scipy             # Scientific Computing
-- xarray            # Data structures
+- conda-forge::xarray            # Data structures
 - scikit-learn     # Machine Learning
 - conda-forge::statsmodels
 - scikit-image
@@ -20,16 +20,19 @@ dependencies:
 - pytorch::torchvision       # pytorch visual library
 - pytorch::torchaudio       # pytorch audio library
 # JAX
-- conda-forge::jax
-- conda-forge::jaxlib
+# - conda-forge::jax
+# - conda-forge::jaxlib
 # GUI
+- ipython
 - conda-forge::ipywidgets
 - ipykernel
 - conda-forge::tqdm
 - pip
 - pip:
+  # - jaxlib
   - torchtyping
   # Jax framework
+  - jax[cpu]
   - chex
   - einops
   - tensor_annotations
@@ -44,11 +47,11 @@ dependencies:
   - jaxopt
   # probabilistic
   - tinygp
-  - pymc
   - distrax
   - blackjax
-  - numpyro
+  # - numpyro
   - tensorflow_probability
+  - bayesnewton
   # OTHER
   - plum-dispatch
   # formatting

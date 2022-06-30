@@ -7,11 +7,11 @@ dependencies:
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
-- xarray            # Data structures
+- conda-forge::xarray            # Data structures
 - pandas            # Data structure
 - scikit-learn      # Machine Learning
 - scikit-image      # Image Processing
-- statsmodels       # Statistical Learning
+- conda-forge::statsmodels       # Statistical Learning
 # Geospatial packages
 - conda-forge::geopandas
 - conda-forge::regionmask
@@ -42,9 +42,9 @@ dependencies:
 - conda-forge::netCDF4
 - hdf5              # standard large storage h5
 - conda-forge::zarr
-# JAX FRAMEWORK
-- conda-forge::jax
-- conda-forge::jaxlib
+# # JAX FRAMEWORK
+# - conda-forge::jax
+# - conda-forge::jaxlib
 # PYTORCH ECOSYSTEM
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
@@ -59,6 +59,7 @@ dependencies:
   - torchtyping
   - torchgeo
   # Jax framework
+  - jax[cpu]
   - chex
   - einops
   - tensor_annotations
@@ -74,7 +75,6 @@ dependencies:
   - jaxopt
   # probabilistic
   - tinygp
-  - pymc
   - distrax
   - blackjax
   - numpyro

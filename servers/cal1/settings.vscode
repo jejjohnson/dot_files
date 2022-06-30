@@ -1,0 +1,10 @@
+"saveAndRun": {
+    "commands": [
+        {
+            "match": ".*",
+            "cmd": "rsync -av --no-owner ${file} {destination folder}${relativeFile}",
+            "useShortcut": false,
+            "silent": false
+        },
+    ]
+}

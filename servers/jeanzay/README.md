@@ -15,3 +15,16 @@ sshuttle -
 * get ip address
 * disable checking
 * start conda
+
+*help*
+
+
+<!-- // "privateKeyPath": "/Users/localUser/.ssh/id_rsa",
+// "uploadOnSave": true,
+// "useTempFile": false,
+// "openSsh": false,
+// "ignore": [
+//     "\\.vscode",
+//     "\\.git",
+//     "\\.DS_Store"
+// ], -->
