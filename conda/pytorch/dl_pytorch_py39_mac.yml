@@ -12,10 +12,12 @@ dependencies:
 - scikit-learn      # Machine Learning
 - scikit-image      # Image Processing
 - statsmodels       # Statistical Learning
+- conda-forge::rasterio
 # Plotting Libraries
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
 # Scale
+- numba
 - dask              # Out-of-Core processing
 - dask-ml           # Out-of-Core machine learning
 # Storage
@@ -28,8 +30,6 @@ dependencies:
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
 - pytorch::torchaudio       # pytorch visual library
-- pytorch::captum
-- pytorch::fastai
 # JUPYTER
 - ipykernel
 - ipython
@@ -41,11 +41,35 @@ dependencies:
   - pyro-ppl        # probabilistic programming library
   - gpytorch        # Gaussian Processes
   - pytorch-lightning
+  # - lightning-bolts
+  # - torchmetrics
+  - torchtyping
+  - lightning
+  # - kornia
   - skorch
-  # Formatters
+  - torchgeo
+  - einops
+  # formatting
   - black
   - pylint
   - isort
   - flake8
   - mypy
   - pytest
+  - pre-commit
+  - rich
+  - sh
+  - pudb
+  # Notebook stuff
+  - pyprojroot
+  - python-dotenv
+  # logging
+  - wandb
+  - loguru
+  # experiment
+  - hydra-core
+  - hydra-colorlog
+  - hydra-optuna-sweeper
+  # plotting
+  - celluloid
+  - corner

@@ -19,9 +19,12 @@ dependencies:
 - pyviz::geoviews
 - pyviz::hvplot
 - conda-forge::cartopy
+- fiona
 - datashader
 - conda-forge::xmovie
 - conda-forge::ffmpeg
+# TENSORFLOW
+- apple::tensorflow-deps
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -29,11 +32,13 @@ dependencies:
 - pip
 - pip:
   # TENSORFLOW
-  - tensorflow
+  - tensorflow-macos
+  - tensorflow-metal
+  - tensorflow-datasets
+  # PPL
   - tensorflow-probability
-  - edward
+  - edward2
   - gpflow
-  - gpflux
   # formatting
   - black
   - pylint
@@ -43,7 +48,6 @@ dependencies:
   - pytest
   # Notebook stuff
   - pyprojroot
-  - python-dotenv
   # logging
   - wandb
   - loguru

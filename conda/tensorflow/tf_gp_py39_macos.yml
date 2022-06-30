@@ -1,9 +1,9 @@
-name: tf_py39
+name: tf_gp_py38
 channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.9
+- python=3.8
 # Standard Libraries
 - numpy             # Numerical Linear Algebra
 - scipy             # Scientific Computing
@@ -19,9 +19,12 @@ dependencies:
 - pyviz::geoviews
 - pyviz::hvplot
 - conda-forge::cartopy
+- fiona
 - datashader
 - conda-forge::xmovie
 - conda-forge::ffmpeg
+# TENSORFLOW
+- apple::tensorflow-deps==2.8
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -29,24 +32,25 @@ dependencies:
 - pip
 - pip:
   # TENSORFLOW
-  - tensorflow
-  - tensorflow-probability
-  - edward
-  - gpflow
-  - gpflux
-  # formatting
-  - black
-  - pylint
-  - isort
-  - flake8
-  - mypy
-  - pytest
-  # Notebook stuff
-  - pyprojroot
-  - python-dotenv
-  # logging
-  - wandb
-  - loguru
-  # plotting
-  - celluloid
-  - corner
+  - tensorflow-macos==2.8
+  - tensorflow-metal
+#   # PPL
+  - tensorflow-probability==0.16
+#   - edward
+#   # - gpflow==2.5.2
+#   - gpflux==0.3.0
+#   # formatting
+#   - black
+#   - pylint
+#   - isort
+#   - flake8
+#   - mypy
+#   - pytest
+#   # Notebook stuff
+#   - pyprojroot
+#   # logging
+#   - wandb
+#   - loguru
+#   # plotting
+#   - celluloid
+#   - corner
