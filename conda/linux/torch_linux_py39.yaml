@@ -19,6 +19,7 @@ dependencies:
 - matplotlib                      # standard plotting library
 - seaborn                         # Stats viz library
 - pyviz::geoviews                 # holoviews for geo data
+- pyviz::hvplot                   # interactive plots
 - conda-forge::cartopy            # EO plotting
 - datashader                      # scale plots
 - conda-forge::xmovie             # xarray movies/gifs
