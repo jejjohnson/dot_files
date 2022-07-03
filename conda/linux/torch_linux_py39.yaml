@@ -6,61 +6,47 @@ channels:
 dependencies:
 - python=3.9
 # Standard Libraries
-- numpy            # Numerical Linear Algebra
-- scipy             # Scientific Computing
-- conda-forge::xarray            # Data structures
-- scikit-learn     # Machine Learning
-- conda-forge::statsmodels
-- scikit-image
-- conda-forge::pymc
-# Geospatial packages
-- geopandas
-- conda-forge::regionmask
-# - conda-forge::esmf
-# - conda-forge::esmpy
-- conda-forge::xesmf
-- conda-forge::xcube
-- conda-forge::rioxarray
-- conda-forge::shapely
-- conda-forge::pooch
-- conda-forge::cftime
+- numpy                           # Numerical Linear Algebra
+- scipy                           # Scientific Computing
+- conda-forge::xarray             # Data structures
+- scikit-learn                    # Machine Learning
+- scikit-image                    # Image processing Library
+# GEOSPATIAL PACKAGES
+- conda-forge::pooch              # Data Download
+- conda-forge::cftime             # Xarray compatible time stamps
+- conda-forge::pyinterp           # Interpolation
 # PLOTTING LIBRARY
-- matplotlib        # standard plotting library
-- seaborn           # Stats viz library
-- bokeh
-- plotly::plotly>=4.6.0
-- pyviz::geoviews
-- conda-forge::cartopy
-- datashader
-- conda-forge::xmovie
+- matplotlib                      # standard plotting library
+- seaborn                         # Stats viz library
+- pyviz::geoviews                 # holoviews for geo data
+- conda-forge::cartopy            # EO plotting
+- datashader                      # scale plots
+- conda-forge::xmovie             # xarray movies/gifs
 # Scale
-- numba
-- dask              # Out-of-Core processing
-- dask-ml           # Out-of-Core machine learning
+- dask                            # Out-of-Core processing
 # Storage
-- hdf5              # standard large storage h5
-- conda-forge::zarr
-- conda-forge::tqdm              # 
+- hdf5                            # standard large storage h5
+- conda-forge::zarr               # optimized zarr storage
 # CUDA ECOSYSTEM
-- conda-forge::cudatoolkit=11.6
+- conda-forge::cudatoolkit=11.6   # CUDA libraries
 # PYTORCH ECOSYSTEM
-- pytorch::pytorch           # tensor library
-- pytorch::torchvision       # pytorch visual library
-- pytorch::torchaudio       # pytorch audio library
-- conda-forge::pytorch-lightning
+- pytorch::pytorch                # pytorch tensor library
+- pytorch::torchvision            # pytorch vision library
+- pytorch::torchaudio             # pytorch audio library
+- conda-forge::pytorch-lightning  # pytorch training utils/org
 # GUI
-- ipython
-- conda-forge::ipywidgets
-- conda-forge::nodejs            # for extensions in jupyterlab
-- ipykernel
-- conda-forge::tqdm
+- ipython                         # interactive python
+- conda-forge::ipywidgets         # widgets for jupyter
+- conda-forge::nodejs             # for extensions in jupyterlab
+- ipykernel                       # visible from jupyterlab
+- conda-forge::tqdm               # progress bar
 - pip
 - pip:
   # PYTORCH ECOSYSTEM
   - torchtyping
-  - pyro-ppl        # probabilistic programming library
-  - gpytorch        # Gaussian Processes
-  - lightning
+  # - pyro-ppl        # probabilistic programming library
+  # - gpytorch        # Gaussian Processes
+  # - lightning
   - skorch
   - torchgeo
   - einops

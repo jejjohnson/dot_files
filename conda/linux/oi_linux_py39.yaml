@@ -1,4 +1,4 @@
-name: jaxtorch_py39
+name: eo_py39
 channels:
 - defaults
 - conda-forge
@@ -12,16 +12,19 @@ dependencies:
 - scikit-learn     # Machine Learning
 - conda-forge::statsmodels
 - scikit-image
-# - conda-forge::pymc
+- conda-forge::pymc
 # Geospatial packages
 - geopandas
 - conda-forge::regionmask
+- conda-forge::rioxarray
+- conda-forge::shapely
 - conda-forge::pooch
 - conda-forge::cftime
-- conda-forge::pyinterp
 # PLOTTING LIBRARY
 - matplotlib        # standard plotting library
 - seaborn           # Stats viz library
+- bokeh
+- plotly::plotly>=4.6.0
 - pyviz::geoviews
 - conda-forge::cartopy
 - datashader
@@ -34,12 +37,12 @@ dependencies:
 - hdf5              # standard large storage h5
 - conda-forge::zarr
 - conda-forge::tqdm              # 
+# CUDA ECOSYSTEM
+- conda-forge::cudatoolkit=11.6
 # PYTORCH ECOSYSTEM
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
 - pytorch::torchaudio       # pytorch audio library
-- conda-forge::cudatoolkit=11.6
-- conda-forge::cudnn=9.2
 - conda-forge::pytorch-lightning
 # GUI
 - ipython
@@ -51,32 +54,12 @@ dependencies:
 - pip:
   # PYTORCH ECOSYSTEM
   - torchtyping
-  # - pyro-ppl        # probabilistic programming library
-  # - gpytorch        # Gaussian Processes
-  # - lightning
+  - pyro-ppl        # probabilistic programming library
+  - gpytorch        # Gaussian Processes
+  - lightning
   - skorch
   - torchgeo
   - einops
-  # Jax framework
-  - "jax[cuda11_cudnn92] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
-  - chex
-  - tensor_annotations
-  - tensor_annotations_jax_stubs
-  # deep learning
-  - equinox
-  - diffrax
-  - flax
-  # - elegy
-  # optimization
-  - optax
-  - jaxopt
-  # probabilistic
-  # - tinygp
-  - distrax
-  - blackjax
-  # - numpyro
-  - tensorflow_probability
-  # - bayesnewton
   # OTHER
   - plum-dispatch
   - netCDF4
