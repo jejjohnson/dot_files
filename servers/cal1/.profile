@@ -68,3 +68,24 @@ function jlab_sbatch(){
     # prints jlab
     cat $LOGDIR/slurm/errs/jlab.err
 }
+
+# KILL ALL CAL1 JOBS
+function kill_all_jobs(){
+    squeue -u $USER | awk '{print $1}' | tail -n+2 | xargs scancel
+}
+
+# ====================
+# WANDB
+# ====================
+function pull_wandb_changes(){
+    rsync -avxH jean_zay:/gpfswork/rech/cli/uvo53rl/logs/wandb/ $WORK/logs/wandb/
+}
+function push_wandb_changes(){
+    rsync -avxH $WORK/logs/wandb/ jean_zay:/gpfswork/rech/cli/uvo53rl/logs/wandb/
+}
+function sync_wandb_changes(){
+    wandb sync $WORK/logs/wandb/
+}
+function sync_wandb_changes_offline(){
+    wandb sync --include-offline $WORK/logs/wandb/offline-*
+}

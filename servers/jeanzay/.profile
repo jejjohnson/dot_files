@@ -47,13 +47,28 @@ function slloc_gpu(){
     salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
 }
 
-function jlab(){
+function jlab_srun(){
+    # go to work directory
+    cd $WORKDIR
+    # do srun
+    srun --pty --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=32 --hint=nomultithread --time=04:00:00 bash
     # activate environment
-    conda activate jlab &
+    conda activate jlab
     # run jlab
     idrlab --notebook-dir=$WORKDIR
-
 }
+
+function jlab_gpu_srun(){
+    # go to work directory
+    cd $WORKDIR
+    # do srun
+    srun --pty --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --time=01:30:00 bash
+    # activate environment
+    conda activate jlab
+    # run jlab
+    idrlab --notebook-dir=$WORKDIR
+}
+
 allocate_node_test(){
     salloc --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread -C v100-16g --qos=qos_gpu-dev -A cli@gpu --time=2:00:00 --job-name=repl_test
     squeue -u $USER -h | grep repl_test | awk '{print $NF}' > $HOME/jlab_configs/alloc_gpu.node
@@ -66,6 +81,84 @@ PATH="$HOME/.local/bin:$PATH"
 # CUSTOM PATHS
 export HOMEDIR=$HOME
 export WORKDIR=/gpfswork/rech/cli/uvo53rl/
-export LOGDIR=$WORKDIR/logs
-export SLURMDIR=$WORKDIR/logs/slurm
-export WANDBDIR=$WORKDIR/logs/wandb
+export LOGDIR=$SCRATCH/logs
+export ERRDIR=$SCRATCH/errs
+export WANDBDIR=$SCRATCH/wandb
+export TBDIR=$SCRATCH/tensorboard
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+export CONDADIR=$SCRATCH/miniconda3
+
+# MODULES BY DEFAULT
+module load git/2.31.1
+module load github-cli/1.13.1
+module load git-lfs/3.0.2
+#module load anaconda-py3/2021.05
+
+# ALIASES
+alias show_jobs="squeue -u $USER"
+
+#!/bin/bash#!/bin/bash
+MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh"
+MINICONDA_PREFIX="$SCRATCH/miniconda3"
+
+
+
+# ========================
+# WANDB
+# ========================
+function sync_wandb_changes(){
+    wandb sync $WORK/logs/wandb/*
+}
+function sync_wandb_changes_offline(){
+    wandb sync --include-offline $WORK/logs/wandb/offline-*
+}
+
+# =======================
+# CONDA INSTALLATION
+# =======================
+install_miniconda(){
+  if [ ! -d $SCRATCH/miniconda ]; then
+    echo "Installing Miniconda"
+    wget $MINICONDA_URL -O $WORK/downloads/miniconda.sh
+    bash $WORK/downloads/miniconda.sh -b -p $MINICONDA_PREFIX
+    install_mamba
+    install_mamba_jlab
+    # install_mamba_jaxtorch
+    # install_mamba_jaxtf
+    # install_mamba_jaxtorchtf
+  else
+    echo "Miniconda already installed"
+  fi
+}
+
+install_mamba(){
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  conda install -y mamba -c conda-forge
+}
+
+install_mamba_jlab(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/jlab.yaml
+}
+
+install_mamba_jaxtorch(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jaxtorch_py39.yml -O $WORK/downloads/jaxtorch_py39.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/jaxtorch_py39.yaml
+}
+
+install_mamba_jaxtf(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/jlab.yaml
+}
+
+install_mamba_jaxtorchtf(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/jlab.yaml
+}
+
+
+eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"

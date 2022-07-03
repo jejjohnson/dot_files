@@ -4,9 +4,7 @@ windows:
     panes:
     - shell_command: |
         ssh meom_cal1
-        cd $WORKDIR
-        sbatch $HOMEDIR/bin/jlab_sbatch.sh
-
+        jlab_sbatch
   - window_name: git
     panes:
     - shell_command: ssh meom_cal1

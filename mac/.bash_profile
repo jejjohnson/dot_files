@@ -29,7 +29,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# SSH SHENNANIGANS
+# =============================
+# SSHUTTLE SHENNANIGANS
+# =============================
 function run_sshuttle_jz(){
     sshuttle --dns -HN -r meom_cal1 130.84.132.0/24
 }
@@ -50,9 +52,9 @@ run_sshuttle_jlab_cpu(){
     sshuttle --dns -vNr jean_zay $(ssh jean_zay 'cat $HOME/jlab_configs/alloc_cpu.ip')
 }
 
-# ===================
-# SSH TUNNELING
-# ===================
+# =============================
+# SSH TUNNELING MANAGEMENT
+# =============================
 # syntatic sugar for launching ssh tunnel given a server and a port
 function ssh_tunnel(){
     server="$1"
@@ -93,9 +95,9 @@ function kill_all_bg_ssh(){
     ps aux | grep ssh | grep "localhost" | awk '{print $2}' | xargs kill
 }
 
-# ==================
-# JUPYTER LAB
-# ==================
+# =============================
+# LOCAL JUPYTER LAB
+# =============================
 
 # Launch jlab
 function jlab(){
@@ -108,58 +110,59 @@ function jlab(){
 }
 
 # launch a jlab session via tmux
-function tmux_jlab(){
+function tmuxp_jlab(){
   tmuxp load $HOME/.tmuxp/jlab.yaml
 }
 
 # =============================
-# REMOTE JUPYTER LAB SESSIONS
+# MEOM CAL1
 # =============================
 
 # MEOM CAL1
-function tmux_jlab_cal1(){
+function tmuxp_jlab_cal1(){
   tmuxp load $HOME/.tmuxp/jlab_cal1.yaml
 }
 
-# JEAN-ZAY (CPU)
-function tmux_jlab_jz(){
-  tmuxp load $HOME/.tmuxp/jlab_jz.yaml
+# KILL ALL CAL1 JOBS
+function kill_all_jobs_cal1(){
+    ssh meom_cal1 | ps aux | grep ssh | grep "localhost" | awk '{print $2}' | xargs scancel
 }
 
-# JEAN-ZAY (GPU)
-function tmux_jlab_jz_gpu(){
-  tmuxp load $HOME/.tmuxp/jlab_jz_gpu.yaml
-}
+# =============================
+# GRICAD
+# =============================
 
 # GRICAD (CPU)
-function tmux_jlab_gricad(){
+function tmuxp_jlab_gricad(){
   tmuxp load $HOME/.tmuxp/jlab_gricad.yaml
 }
 
 # GRICAD (GPU)
-function tmux_jlab_gricad_gpu(){
+function tmuxp_jlab_gricad_gpu(){
   tmuxp load $HOME/.tmuxp/jlab_gricad_gpu.yaml
 }
 
-
-
-# JEANZAY
-
-function kill_all_jobs(){
+# KILL ALL JZ JOBS
+function kill_all_jobs_gricad(){
     ssh jean_zay | ps aux | grep ssh | grep "localhost" | awk '{print $2}' | xargs scancel
 }
 
-# # Launch jlab
-# function jlab_remote(){
-#     # parse arguments
-#     server=${1:-meom_cal1}
-#     port=${2:-8888}
 
-#     # ssh into remote server
-#     ssh $server -L "$port":localhost:"$port" -t "conda activate jlab; bash -i"
+# =============================
+# JEAN ZAY
+# =============================
 
-#     # activate jupyter-lab
-#     # conda activate jlab
-#     # # Fires-up a Jupyter notebook by supplying a specific port
-#     # jupyter-lab --no-browser --ip=0.0.0.0 --port=$port
-# }
+# JEAN-ZAY (CPU)
+function tmuxp_jlab_jz(){
+  tmuxp load $HOME/.tmuxp/jlab_jz.yaml
+}
+
+# JEAN-ZAY (GPU)
+function tmuxp_jlab_jz_gpu(){
+  tmuxp load $HOME/.tmuxp/jlab_jz_gpu.yaml
+}
+
+# KILL ALL JZ JOBS
+function kill_all_jobs_jz(){
+    ssh jean_zay | ps aux | grep ssh | grep "localhost" | awk '{print $2}' | xargs scancel
+}
