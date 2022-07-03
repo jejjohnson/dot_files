@@ -101,8 +101,6 @@ alias show_jobs="squeue -u $USER"
 MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh"
 MINICONDA_PREFIX="$SCRATCH/miniconda3"
 
-
-
 # ========================
 # WANDB
 # ========================
@@ -117,15 +115,24 @@ function sync_wandb_changes_offline(){
 # CONDA INSTALLATION
 # =======================
 install_miniconda(){
-  if [ ! -d $SCRATCH/miniconda ]; then
+  if [ ! -d $SCRATCH/miniconda3 ]; then
     echo "Installing Miniconda"
     wget $MINICONDA_URL -O $WORK/downloads/miniconda.sh
     bash $WORK/downloads/miniconda.sh -b -p $MINICONDA_PREFIX
+    # install mamba in base env
     install_mamba
+    # install 'global' jupyterlab
     install_mamba_jlab
-    # install_mamba_jaxtorch
-    # install_mamba_jaxtf
-    # install_mamba_jaxtorchtf
+    # install pytorch
+    install_mamba_torch
+    # install jax
+    install_mamba_jax
+    # install jax+pytorch
+    install_mamba_jaxtorch
+    # install jax+tensorflow
+    install_mamba_jaxtf
+    # install jax+pytorch+tensorflow
+    install_mamba_jaxtorchtf
   else
     echo "Miniconda already installed"
   fi
@@ -142,22 +149,34 @@ install_mamba_jlab(){
   mamba env create -f $WORK/downloads/jlab.yaml
 }
 
+install_mamba_torch(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/torch_linux_py39.yaml -O $WORK/downloads/torch_py39.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/torch_py39.yaml
+}
+
+install_mamba_jax(){
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/jax_linux_py39.yaml -O $WORK/downloads/jax_py39.yaml
+  eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
+  mamba env create -f $WORK/downloads/jax_py39.yaml
+}
+
 install_mamba_jaxtorch(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jaxtorch_py39.yml -O $WORK/downloads/jaxtorch_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jaxtorch_linux_py39.yaml -O $WORK/downloads/jaxtorch_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
   mamba env create -f $WORK/downloads/jaxtorch_py39.yaml
 }
 
 install_mamba_jaxtf(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtf_linux_py39.yaml -O $WORK/downloads/jaxtf_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jlab.yaml
+  mamba env create -f $WORK/downloads/jaxtf_py39.yaml
 }
 
 install_mamba_jaxtorchtf(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtorchtf_linux_py39.yaml -O $WORK/downloads/jaxtorchtf_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jlab.yaml
+  mamba env create -f $WORK/downloads/jaxtorchtf_py39.yaml
 }
 
 

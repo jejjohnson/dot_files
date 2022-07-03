@@ -1,4 +1,4 @@
-name: jaxtorch_py39
+name: jaxtf_py39
 channels:
 - defaults
 - conda-forge
@@ -31,7 +31,8 @@ dependencies:
 - plotly::plotly>=4.6.0
 - pyviz::geoviews
 - conda-forge::cartopy
-- datashader     
+- datashader
+- conda-forge::xmovie
 # Scale
 - numba
 - dask              # Out-of-Core processing
@@ -40,12 +41,9 @@ dependencies:
 - hdf5              # standard large storage h5
 - conda-forge::zarr
 - conda-forge::tqdm              # 
-# PYTORCH ECOSYSTEM
-- pytorch::pytorch           # tensor library
-- pytorch::torchvision       # pytorch visual library
-- pytorch::torchaudio       # pytorch audio library
-- conda-forge::cudatoolkit=11.6
-- conda-forge::pytorch-lightning
+# CUDA ECOSYSTEM
+- conda-forge::cudatoolkit=11.2
+- conda-forge::cudnn=8.2.0
 # GUI
 - ipython
 - conda-forge::ipywidgets
@@ -54,20 +52,16 @@ dependencies:
 - conda-forge::tqdm
 - pip
 - pip:
-  # PYTORCH ECOSYSTEM
-  - torchtyping
-  - pyro-ppl        # probabilistic programming library
-  - gpytorch        # Gaussian Processes
-  - pytorch-lightning
-  - lightning
-  - skorch
-  - torchgeo
+  # TENSORFLOW ECOSYSTEM
+  - tensorflow
+  - tensorflow_probability
+  - tensorflow-datasets
+  - tensor_annotations
+  - tensor_annotations_tensorflow_stubs
   - einops
   # Jax framework
-  - "jax[cuda] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
+  - "jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
   - chex
-  - einops
-  - tensor_annotations
   - tensor_annotations_jax_stubs
   # deep learning
   - equinox
@@ -82,7 +76,6 @@ dependencies:
   - distrax
   - blackjax
   - numpyro
-  - tensorflow_probability
   - bayesnewton
   # OTHER
   - plum-dispatch
