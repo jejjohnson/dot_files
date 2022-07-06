@@ -12,6 +12,9 @@ dependencies:
 - conda-forge::jupyterlab-git
 - conda-forge::jupyter-server-proxy
 - conda-forge::ipywidgets
+- conda-forge::jupyterlab-snippets
+- conda-forge::jupyterlab_code_formatter
+- conda-forge::jupytext
 - pyviz::holoviews
 - bokeh::bokeh
 - bokeh::jupyter_bokeh              # Bokeh
@@ -19,3 +22,6 @@ dependencies:
 - pip                               # To install other packages
 - pip:
   - dask_labextension
+  - nbdime
+  - black
+  - isort
