@@ -128,6 +128,24 @@ function kill_all_jobs_cal1(){
     ssh meom_cal1 | ps aux | grep ssh | grep "localhost" | awk '{print $2}' | xargs scancel
 }
 
+# Transfer File
+function upload_file(){
+    file=$1
+    destination=$2
+    echo "file:" $destination
+    echo "destimation:" $destination
+    scp $file meom_cal1:$destination
+}
+
+# Transfer File
+function upload_folder(){
+    origin=$1
+    destination=$2
+    echo "file:" $origin
+    echo "destimation:" $destination
+    scp $origin meom_cal1:$destination
+}
+
 # =============================
 # GRICAD
 # =============================

@@ -63,6 +63,7 @@ dependencies:
   - diffrax
   - flax
   - elegy
+  - jaxtyping
   # optimization
   - optax
   - jaxopt
