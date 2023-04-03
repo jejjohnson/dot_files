@@ -26,7 +26,7 @@ dependencies:
 - pytorch::pytorch           # tensor library
 - pytorch::torchvision       # pytorch visual library
 - pytorch::torchaudio
-- conda-forge::cudatoolkit=11.6
+- conda-forge::cudatoolkit=11.8
 - pip
 - pip:
   # PYTORCH ECOSYSTEM
