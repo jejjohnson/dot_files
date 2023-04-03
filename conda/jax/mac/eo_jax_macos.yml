@@ -1,55 +1,41 @@
-name: jax_eo_py39
+name: jax_eo_py310
 channels:
 - defaults
 - conda-forge
 dependencies:
 - python=3.9
 # Standard Libraries
-- numpy             # Numerical Linear Algebra
-- scipy             # Scientific Computing
-- conda-forge::xarray            # Data structures
-- pandas            # Data structure
-- scikit-learn      # Machine Learning
-- scikit-image      # Image Processing
-- conda-forge::statsmodels       # Statistical Learning
-# Geospatial packages
-- conda-forge::geopandas
-- conda-forge::regionmask
-# - conda-forge::esmf
-# - conda-forge::esmpy
-- conda-forge::pyinterp
+- numpy                           # Numerical Linear Algebra
+- scipy                           # Scientific Computing
+- conda-forge::xarray             # Data structures
+- scikit-learn                    # Machine Learning
+- scikit-image                    # Image processing Library
+# GEOSPATIAL PACKAGES
+- conda-forge::pooch              # Data Download
+- conda-forge::cftime             # Xarray compatible time stamps
+- conda-forge::pyinterp           # Interpolation
 - conda-forge::rasterio
-# - conda-forge::xesmf
-- conda-forge::xcube
-- conda-forge::rioxarray
-- conda-forge::shapely
-- conda-forge::pooch
-- conda-forge::cftime
-- affine
-# Scale
-- numba
-- dask              # Out-of-Core processing
-- dask-ml           # Out-of-Core machine learning
+- conda-forge::xrft
+- conda-forge::numpy_groupies
 # PLOTTING LIBRARY
-- matplotlib        # standard plotting library
-- seaborn           # Stats viz library
-- bokeh
-- plotly::plotly>=4.6.0
-- pyviz::geoviews
-- conda-forge::cartopy
-- datashader       
+- matplotlib                      # standard plotting library
+- seaborn                         # Stats viz library
+- pyviz::geoviews                 # holoviews for geo data
+- conda-forge::cartopy            # EO plotting
+- pyviz::hvplot                   # interactive plots
+- pyviz::datashader                      # scale plots
+- conda-forge::xmovie             # xarray movies/gifs
+# Scale
+- dask                            # Out-of-Core processing
 # Storage
-- conda-forge::netCDF4
-- hdf5              # standard large storage h5
-- conda-forge::zarr
-# # JAX FRAMEWORK
-# - conda-forge::jax
-# - conda-forge::jaxlib
+- hdf5                            # standard large storage h5
+- conda-forge::zarr               # optimized zarr storage
+- conda-forge::netcdf4
 # PYTORCH ECOSYSTEM
-- pytorch::pytorch           # tensor library
-- pytorch::torchvision       # pytorch visual library
-- pytorch::torchaudio       # pytorch audio library
-- conda-forge::xbatcher
+- pytorch::pytorch                # pytorch tensor library
+- pytorch::torchvision            # pytorch vision library
+- pytorch::torchaudio             # pytorch audio library
+- conda-forge::pytorch-lightning  # pytorch training utils/org
 # GUI
 - conda-forge::ipywidgets
 - ipykernel
@@ -60,16 +46,21 @@ dependencies:
   - torchgeo
   # Jax framework
   - jax[cpu]
-  - chex
+  - jaxtyping
   - einops
-  - tensor_annotations
-  - tensor_annotations_jax_stubs
-  - dm-pix
-  # deep learning
   - equinox
+  - PyTreeClass
+  - jaxkern
+  # scientific computing
+  - kernex
+  - FiniteDiffX
+  - jaxdf
   - diffrax
+  - jax-cosmo
+  # deep learning
+  - serket
   - flax
-  - elegy
+  - ciclo
   # optimization
   - optax
   - jaxopt
@@ -78,7 +69,8 @@ dependencies:
   - distrax
   - blackjax
   - numpyro
-  - tensorflow_probability
+  - GPJax
+  - jaxlinop
   - bayesnewton
   # OTHER
   - plum-dispatch
@@ -93,9 +85,15 @@ dependencies:
   - rich
   - sh
   - pudb
+  # collections
+  - ml_collections
+  - absl-py
   # Notebook stuff
   - pyprojroot
   - python-dotenv
+  - pyrootutils
+  - autoroot
+  - autorootcwd
   # logging
   - wandb
   - loguru
