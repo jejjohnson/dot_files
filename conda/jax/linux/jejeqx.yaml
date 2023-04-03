@@ -1,8 +1,8 @@
 name: jejeqx
 channels:
   - conda-forge
-  - nvidia
   - pytorch
+  - nvidia
 dependencies:
   - python=3.10
   # Standard Libraries
@@ -54,7 +54,7 @@ dependencies:
       - torchtyping
       - torchgeo
       # Jax framework
-      - "jax[cuda] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
+      - "jax[cuda11_pip] -f https://storage.googleapis.com/jax-releases/jax_releases.html"
       - einops
       - jaxtyping
       - dm-pix
