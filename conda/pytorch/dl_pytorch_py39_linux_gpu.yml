@@ -32,7 +32,7 @@ dependencies:
   # PYTORCH ECOSYSTEM
   - pyro-ppl        # probabilistic programming library
   - gpytorch        # Gaussian Processes
-  - pytorch-lightning
+  - lightning
   - lightning-bolts
   - lightning-flash
   # Jupyter
