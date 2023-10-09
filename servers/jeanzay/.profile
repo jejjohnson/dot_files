@@ -15,35 +15,35 @@ export TBDIR=$SCRATCH/tensorboard
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 export CONDADIR=$SCRATCHDIR/miniconda3
 
-# function srun_cpu(){
-#     cores={$1:-16}
-#     # go to work directory
-#     cd $WORKDIR &
-#     # do srun
-#     srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost --pty bash
-# }
+function srun_cpu(){
+    cores={$1:-16}
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost --pty bash
+}
 
-# function srun_gpu(){
-#     # go to work directory
-#     cd $WORKDIR &
-#     # do srun
-#     srun --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00 --pty bash
-# }
+function srun_gpu(){
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    srun --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00 --pty bash
+}
 
-# function slloc_cpu(){
-#     cores=${1:-16}
-#     # go to work directory
-#     cd $WORKDIR &
-#     # do srun
-#     salloc --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost
-# }
+function slloc_cpu(){
+    cores=${1:-16}
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    salloc --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost
+}
 
-# function slloc_gpu(){
-#     # go to work directory
-#     cd $WORKDIR &
-#     # do srun
-#     salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
-# }
+function slloc_gpu(){
+    # go to work directory
+    cd $WORKDIR &
+    # do srun
+    salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
+}
 
 # function jlab_srun(){
 #     # go to work directory
@@ -67,12 +67,12 @@ export CONDADIR=$SCRATCHDIR/miniconda3
 #     idrlab --notebook-dir=$WORKDIR
 # }
 
-# allocate_node_test(){
-#     salloc --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread -C v100-16g --qos=qos_gpu-dev -A cli@gpu --time=2:00:00 --job-name=repl_test
-#     squeue -u $USER -h | grep repl_test | awk '{print $NF}' > $HOME/jlab_configs/alloc_gpu.node
-#     ssh $(cat $HOME/jlab_configs/alloc_gpu.node) -o StrictHostKeyChecking=no
-#     hostname -I | awk '{print $1}' > $HOME/jlab_configs/alloc_gpu.ip
-# }
+allocate_node_test(){
+    salloc --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread -C v100-16g --qos=qos_gpu-dev -A cli@gpu --time=2:00:00 --job-name=repl_test
+    squeue -u $USER -h | grep repl_test | awk '{print $NF}' > $HOME/jlab_configs/alloc_gpu.node
+    ssh $(cat $HOME/jlab_configs/alloc_gpu.node) -o StrictHostKeyChecking=no
+    hostname -I | awk '{print $1}' > $HOME/jlab_configs/alloc_gpu.ip
+}
 
 
 
@@ -109,7 +109,6 @@ install_miniconda(){
     echo "Installing Miniconda"
     wget $MINICONDA_URL -O $WORKDIR/downloads/miniconda.sh
     bash $WORKDIR/downloads/miniconda.sh -b -p $MINICONDA_PREFIX
-    # install mamba in base env
     install_mamba
     # install 'global' jupyterlab
     install_mamba_jlab
@@ -130,25 +129,28 @@ install_miniconda(){
 
 install_mamba(){
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  conda install -y mamba -c conda-forge
+  conda update -n base conda -c conda-forge -y
+  # install mamba in base env
+  conda install -n base conda-libmamba-solver -y
+  conda config --set solver libmamba
 }
 
 install_mamba_jlab(){
   wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORKDIR/downloads/jlab.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORKDIR/downloads/jlab.yaml
+  conda env create -f $WORKDIR/downloads/jlab.yaml
 }
 
 install_mamba_torch(){
   wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/torch_linux_py39.yaml -O $WORKDIR/downloads/torch_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORKDIR/downloads/torch_py39.yaml
+  conda env create -f $WORKDIR/downloads/torch_py39.yaml
 }
 
 install_mamba_jax(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/jax_linux_py39.yaml -O $WORKDIR/downloads/jax_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jax/linux/jejeqx.yaml -O $WORKDIR/downloads/jejeqx.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORKDIR/downloads/jax_py39.yaml
+  conda env create -f $WORKDIR/downloads/jejeqx.yaml
 }
 
 install_mamba_jaxtorch(){
