@@ -2,6 +2,17 @@
 
 # cd /gpfswork/rech/cli/uvo53rl
 
+# CUSTOM PATHS
+export HOMEDIR=/linkhome/rech/genige01/uvo53rl
+export SCRATCHDIR=/gpfsscratch/rech/cli/uvo53rl/
+export WORKDIR=/gpfswork/rech/cli/uvo53rl/
+export LOGDIR=$SCRATCH/logs
+export ERRDIR=$SCRATCH/errs
+export WANDBDIR=$SCRATCH/wandb
+export TBDIR=$SCRATCH/tensorboard
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+export CONDADIR=$SCRATCHDIR/miniconda3
+
 function srun_cpu(){
     cores={$1:-16}
     # go to work directory
@@ -63,15 +74,7 @@ allocate_node_test(){
 
 PATH="$HOME/.local/bin:$PATH"
 
-# CUSTOM PATHS
-export HOMEDIR=$HOME
-export WORKDIR=/gpfswork/rech/cli/uvo53rl/
-export LOGDIR=$SCRATCH/logs
-export ERRDIR=$SCRATCH/errs
-export WANDBDIR=$SCRATCH/wandb
-export TBDIR=$SCRATCH/tensorboard
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-export CONDADIR=$SCRATCH/miniconda3
+
 
 # MODULES BY DEFAULT
 module load git/2.31.1
@@ -84,16 +87,16 @@ alias show_jobs="squeue -u $USER"
 
 #!/bin/bash#!/bin/bash
 MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh"
-MINICONDA_PREFIX=$SCRATCH/miniconda3
+export MINICONDA_PREFIX=$SCRATCHDIR/miniconda3
 
 # ========================
 # WANDB
 # ========================
 function sync_wandb_changes(){
-    wandb sync $WORK/logs/wandb/*
+    wandb sync $WORKDIR/logs/wandb/*
 }
 function sync_wandb_changes_offline(){
-    wandb sync --include-offline $WORK/logs/wandb/offline-*
+    wandb sync --include-offline $WORKDIR/logs/wandb/offline-*
 }
 
 # =======================
@@ -129,39 +132,39 @@ install_mamba(){
 }
 
 install_mamba_jlab(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORK/downloads/jlab.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jupyterlab.yml -O $WORKDIR/downloads/jlab.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jlab.yaml
+  mamba env create -f $WORKDIR/downloads/jlab.yaml
 }
 
 install_mamba_torch(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/torch_linux_py39.yaml -O $WORK/downloads/torch_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/torch_linux_py39.yaml -O $WORKDIR/downloads/torch_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/torch_py39.yaml
+  mamba env create -f $WORKDIR/downloads/torch_py39.yaml
 }
 
 install_mamba_jax(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/jax_linux_py39.yaml -O $WORK/downloads/jax_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/linux/jax_linux_py39.yaml -O $WORKDIR/downloads/jax_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jax_py39.yaml
+  mamba env create -f $WORKDIR/downloads/jax_py39.yaml
 }
 
 install_mamba_jaxtorch(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jaxtorch_linux_py39.yaml -O $WORK/downloads/jaxtorch_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/conda/jaxtorch_linux_py39.yaml -O $WORKDIR/downloads/jaxtorch_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jaxtorch_py39.yaml
+  mamba env create -f $WORKDIR/downloads/jaxtorch_py39.yaml
 }
 
 install_mamba_jaxtf(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtf_linux_py39.yaml -O $WORK/downloads/jaxtf_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtf_linux_py39.yaml -O $WORKDIR/downloads/jaxtf_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jaxtf_py39.yaml
+  mamba env create -f $WORKDIR/downloads/jaxtf_py39.yaml
 }
 
 install_mamba_jaxtorchtf(){
-  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtorchtf_linux_py39.yaml -O $WORK/downloads/jaxtorchtf_py39.yaml
+  wget https://raw.githubusercontent.com/jejjohnson/dot_files/master/jupyter_scripts/jaxtorchtf_linux_py39.yaml -O $WORKDIR/downloads/jaxtorchtf_py39.yaml
   eval "$($MINICONDA_PREFIX/condabin/conda shell.bash hook)"
-  mamba env create -f $WORK/downloads/jaxtorchtf_py39.yaml
+  mamba env create -f $WORKDIR/downloads/jaxtorchtf_py39.yaml
 }
 
 
