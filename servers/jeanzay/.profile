@@ -15,64 +15,64 @@ export TBDIR=$SCRATCH/tensorboard
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 export CONDADIR=$SCRATCHDIR/miniconda3
 
-function srun_cpu(){
-    cores={$1:-16}
-    # go to work directory
-    cd $WORKDIR &
-    # do srun
-    srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost --pty bash
-}
+# function srun_cpu(){
+#     cores={$1:-16}
+#     # go to work directory
+#     cd $WORKDIR &
+#     # do srun
+#     srun --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost --pty bash
+# }
 
-function srun_gpu(){
-    # go to work directory
-    cd $WORKDIR &
-    # do srun
-    srun --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00 --pty bash
-}
+# function srun_gpu(){
+#     # go to work directory
+#     cd $WORKDIR &
+#     # do srun
+#     srun --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00 --pty bash
+# }
 
-function slloc_cpu(){
-    cores=${1:-16}
-    # go to work directory
-    cd $WORKDIR &
-    # do srun
-    salloc --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost
-}
+# function slloc_cpu(){
+#     cores=${1:-16}
+#     # go to work directory
+#     cd $WORKDIR &
+#     # do srun
+#     salloc --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=$cores --hint=nomultithread --time=02:00:00 --partition=prepost
+# }
 
-function slloc_gpu(){
-    # go to work directory
-    cd $WORKDIR &
-    # do srun
-    salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
-}
+# function slloc_gpu(){
+#     # go to work directory
+#     cd $WORKDIR &
+#     # do srun
+#     salloc --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --partition=prepost --qos=qos_gpu-dev --time=02:00:00
+# }
 
-function jlab_srun(){
-    # go to work directory
-    cd $WORKDIR
-    # do srun
-    srun --pty --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=32 --hint=nomultithread --time=04:00:00 bash
-    # activate environment
-    conda activate jlab
-    # run jlab
-    idrlab --notebook-dir=$WORKDIR
-}
+# function jlab_srun(){
+#     # go to work directory
+#     cd $WORKDIR
+#     # do srun
+#     srun --pty --account=cli@cpu --nodes=1 --ntasks-per-node=1 --cpus-per-task=32 --hint=nomultithread --time=04:00:00 bash
+#     # activate environment
+#     conda activate jlab
+#     # run jlab
+#     idrlab --notebook-dir=$WORKDIR
+# }
 
-function jlab_gpu_srun(){
-    # go to work directory
-    cd $WORKDIR
-    # do srun
-    srun --pty --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --time=01:30:00 bash
-    # activate environment
-    conda activate jlab
-    # run jlab
-    idrlab --notebook-dir=$WORKDIR
-}
+# function jlab_gpu_srun(){
+#     # go to work directory
+#     cd $WORKDIR
+#     # do srun
+#     srun --pty --account=cli@v100 --nodes=1 --ntasks-per-node=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread --time=01:30:00 bash
+#     # activate environment
+#     conda activate jlab
+#     # run jlab
+#     idrlab --notebook-dir=$WORKDIR
+# }
 
-allocate_node_test(){
-    salloc --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread -C v100-16g --qos=qos_gpu-dev -A cli@gpu --time=2:00:00 --job-name=repl_test
-    squeue -u $USER -h | grep repl_test | awk '{print $NF}' > $HOME/jlab_configs/alloc_gpu.node
-    ssh $(cat $HOME/jlab_configs/alloc_gpu.node) -o StrictHostKeyChecking=no
-    hostname -I | awk '{print $1}' > $HOME/jlab_configs/alloc_gpu.ip
-}
+# allocate_node_test(){
+#     salloc --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --hint=nomultithread -C v100-16g --qos=qos_gpu-dev -A cli@gpu --time=2:00:00 --job-name=repl_test
+#     squeue -u $USER -h | grep repl_test | awk '{print $NF}' > $HOME/jlab_configs/alloc_gpu.node
+#     ssh $(cat $HOME/jlab_configs/alloc_gpu.node) -o StrictHostKeyChecking=no
+#     hostname -I | awk '{print $1}' > $HOME/jlab_configs/alloc_gpu.ip
+# }
 
 
 
