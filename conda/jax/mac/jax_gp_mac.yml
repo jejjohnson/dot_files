@@ -1,43 +1,79 @@
-name: jax_gp
+name: jax_gpjax_py311
 channels:
 - defaults
 - conda-forge
 dependencies:
-- python=3.9
+- python=3.11
 # Standard Libraries
-- numpy            # Numerical Linear Algebra
-- scipy             # Scientific Computing
-- scikit-learn     # Machine Learning
-- conda-forge::statsmodels
-- scikit-image
-- numba
-- dask
-- dask-ml
-# Plotting Libraries
-- matplotlib        # standard plotting library
-- seaborn          # Stats viz library
-# JAX FRAMEWORK
-- conda-forge::jax
-- conda-forge::jaxlib
-# TENSORFLOW FRAMEWORK
-- conda-forge::tensorflow-probability>=0.14.1
-- conda-forge::tensorflow-datasets
+- numpy                           # Numerical Linear Algebra
+- scipy                           # Scientific Computing
+- conda-forge::xarray             # Data structures
+- scikit-learn                    # Machine Learning
+- scikit-image                    # Image processing Library
+# GEOSPATIAL PACKAGES
+- conda-forge::pooch              # Data Download
+- conda-forge::cftime             # Xarray compatible time stamps
+- conda-forge::pyinterp           # Interpolation
+- conda-forge::rasterio
+- conda-forge::xrft
+- conda-forge::numpy_groupies
+# PLOTTING LIBRARY
+- matplotlib                      # standard plotting library
+- seaborn                         # Stats viz library
+- pyviz::geoviews                 # holoviews for geo data
+- conda-forge::cartopy            # EO plotting
+- pyviz::hvplot                   # interactive plots
+- pyviz::datashader                      # scale plots
+- conda-forge::xmovie             # xarray movies/gifs
+# Scale
+- dask                            # Out-of-Core processing
+# Storage
+- hdf5                            # standard large storage h5
+- conda-forge::zarr               # optimized zarr storage
+- conda-forge::netcdf4
+# PYTORCH ECOSYSTEM
+- pytorch::pytorch                # pytorch tensor library
+- conda-forge::pytorch-lightning  # pytorch training utils/org
+# GUI
+- conda-forge::ipywidgets
 - ipykernel
 - conda-forge::tqdm
 - pip
 - pip:
+  - torchtyping
+  - torchgeo
   # Jax framework
-  # - "https://storage.googleapis.com/jax-releases/mac/jaxlib-0.1.73-cp39-none-macosx_10_9_x86_64.whl"
-  # - jax
-  # - git+git://github.com/deepmind/tree.git
-  - distrax
-  - chex
-  - optax
-  - edward2[jax]
-  - numpyro
-  - objax
-  - bayesnewton
+  - jax
+  - jaxlib
+  - jaxtyping
   - einops
+  - equinox
+  - PyTreeClass
+  - simple-pytree
+  # scientific computing
+  - kernex
+  - FiniteDiffX
+  - jaxdf
+  - diffrax
+  - jax-cosmo
+  # deep learning
+  - serket
+  - flax
+  # optimization
+  - optax
+  - jaxopt
+  - lineax
+  # probabilistic
+  - tinygp
+  - distrax
+  - blackjax
+  - numpyro
+  - cola-ml
+  - GPJax
+  - jaxlinop
+  - bayesnewton
+  # OTHER
+  - plum-dispatch
   # formatting
   - black
   - pylint
@@ -45,10 +81,23 @@ dependencies:
   - flake8
   - mypy
   - pytest
+  - pre-commit
+  - rich
+  - sh
+  - pudb
+  # collections
+  - ml_collections
+  - absl-py
   # Notebook stuff
   - pyprojroot
+  - python-dotenv
+  - pyrootutils
+  - autoroot
+  - autorootcwd
   # logging
+  - hydra-core
   - wandb
+  - loguru
   # plotting
   - celluloid
   - corner

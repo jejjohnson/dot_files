@@ -99,7 +99,7 @@ alias show_jobs="squeue -u $USER"
 
 #!/bin/bash#!/bin/bash
 MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh"
-MINICONDA_PREFIX="$SCRATCH/miniconda3"
+MINICONDA_PREFIX=$SCRATCH/miniconda3
 
 # ========================
 # WANDB
@@ -117,8 +117,8 @@ function sync_wandb_changes_offline(){
 install_miniconda(){
   if [ ! -d $SCRATCH/miniconda3 ]; then
     echo "Installing Miniconda"
-    wget $MINICONDA_URL -O $WORK/downloads/miniconda.sh
-    bash $WORK/downloads/miniconda.sh -b -p $MINICONDA_PREFIX
+    wget $MINICONDA_URL -O $WORKDIR/downloads/miniconda.sh
+    bash $WORKDIR/downloads/miniconda.sh -b -p $MINICONDA_PREFIX
     # install mamba in base env
     install_mamba
     # install 'global' jupyterlab
