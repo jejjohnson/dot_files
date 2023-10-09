@@ -3,7 +3,7 @@
 # cd /gpfswork/rech/cli/uvo53rl
 
 # CUSTOM PATHS
-export HOMEDIR=/linkhome/rech/genige01/uvo53rl
+export HOMEDIR=$HOME
 export SCRATCHDIR=/gpfsscratch/rech/cli/uvo53rl/
 export WORKDIR=/gpfswork/rech/cli/uvo53rl/
 export LOGDIR=$SCRATCH/logs
