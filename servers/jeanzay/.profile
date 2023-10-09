@@ -2,6 +2,8 @@
 
 # cd /gpfswork/rech/cli/uvo53rl
 
+PATH="$HOME/.local/bin:$PATH"
+
 # CUSTOM PATHS
 export HOMEDIR=$HOME
 export SCRATCHDIR=/gpfsscratch/rech/cli/uvo53rl/
@@ -72,7 +74,7 @@ allocate_node_test(){
     hostname -I | awk '{print $1}' > $HOME/jlab_configs/alloc_gpu.ip
 }
 
-PATH="$HOME/.local/bin:$PATH"
+
 
 
 
