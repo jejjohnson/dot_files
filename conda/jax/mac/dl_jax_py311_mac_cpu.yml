@@ -1,0 +1,83 @@
+name: jax_py11
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  # Standard Libraries
+  - numpy # Numerical Linear Algebra
+  - scipy # Scientific Computing
+  - conda-forge::xarray # Data structures
+  - scikit-learn # Machine Learning
+  - conda-forge::statsmodels
+  - scikit-image
+  # Plotting Libraries
+  - matplotlib # standard plotting library
+  - seaborn # Stats viz library
+  # JAX
+  - conda-forge::jax
+  - conda-forge::jaxlib
+  # GUI
+  - ipython
+  - conda-forge::ipywidgets
+  - ipykernel
+  - conda-forge::tqdm
+  - pip
+  - pip:
+      # Jax framework
+      - equinox
+      - serket
+      - jaxtyping
+      - einops
+      # MATHEMATICS
+      - cola
+      - einops
+      - einx
+      - kernex
+      - torchquad
+      - finitediffx
+      # INTERPOLATION
+      - interpax
+      # Deep learning
+      - keras
+      - flax
+      - mlx-data
+      - xrpatcher
+      # scientific machine learning
+      - diffrax
+      - probdiffeq
+      # optimization
+      - optax
+      - jaxopt
+      - lineax
+      - optimistix
+      # probabilistic
+      - numpyro
+      - tinygp
+      - blackjax
+      - flowjax
+      - dynamax
+      - "tfp-nightly[jax]"
+      # formatting
+      - black
+      - pylint
+      - isort
+      - flake8
+      - mypy
+      - pytest
+      - pre-commit
+      - rich
+      - sh
+      - pudb
+      # Notebook stuff
+      - pyprojroot
+      - autoroot
+      - python-dotenv
+      # logging
+      - wandb
+      - loguru
+      - hydra-core
+      - hydra-zen
+      # plotting
+      - celluloid
+      - corner

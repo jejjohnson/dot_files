@@ -28,9 +28,6 @@ dependencies:
   # Storage
   - anaconda::netCDF4
   - conda-forge::zarr
-  # JAX FRAMEWORK
-  - conda-forge::jax
-  - conda-forge::jaxlib
   # GUI
   - conda-forge::ipywidgets
   - ipykernel
